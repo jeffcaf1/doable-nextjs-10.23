@@ -34,5 +34,8 @@ export const generateStaticParams = async () => {
 export default async function Story({ params }: { params: { story: string } }) {
   const story = await fetchStory(params.story);
 
-  return <div className="p-6">{story?.innerHtml && <article dangerouslySetInnerHTML={{ __html: story.innerHtml }} />}</div>;
+  return <div className="p-6">
+    <h1>{story.titlePrimary}</h1>
+    {story?.innerHtml && <article dangerouslySetInnerHTML={{ __html: story.innerHtml }} />}
+    </div>;
 }
