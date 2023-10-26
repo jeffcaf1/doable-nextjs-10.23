@@ -60,15 +60,15 @@ export default async function Story({ params }: { params: { story: string } }) {
                 <div className="key-points-sctn" >
                     <div className="key-points-header">Key Points</div>
                     <div className="key-points-list-container">
-                        <p className="key-points-set-html">Inner set html ul list of key points</p>
+                    {story?.innerHtmlKeyPoints && <div dangerouslySetInnerHTML={{ __html: story.innerHtmlKeyPoints }} />}
                     </div>
                 </div>
                 <div className="body-sctn" >
                     <div className="body-intro-graf">
-                        <p>Intro paragraph with unique styling</p>
+                    {story?.innerHtmlIntroGraf && <div dangerouslySetInnerHTML={{ __html: story.innerHtmlIntroGraf }} />}
                     </div>
                     <div className="body-set-html">
-                    {story?.innerHtml && <p dangerouslySetInnerHTML={{ __html: story.innerHtml }} />}
+                    {story?.innerHtmlBody && <div dangerouslySetInnerHTML={{ __html: story.innerHtmlBody }} />}
                     </div>
                 </div>
             </article>

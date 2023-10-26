@@ -20,6 +20,8 @@ export type StoryFromAPI = {
   "Created Date": string;
   "Modified Date": string;
   titlePrimary: string;
+  titleSecondary: string;
+  description: string;
   approved: boolean;
   OLDvidIntrvwInProgressEmailSent: boolean;
   isTemplate: boolean;
@@ -27,6 +29,8 @@ export type StoryFromAPI = {
   userPermissions: string[];
   templateStoryPeopleProspects: string[];
   progressStatus: string;
-  innerHtml: string;
+  innerHtmlIntroGraf: string;
+  innerHtmlKeyPoints: string;
+  innerHtmlBody: string;
   _id: string;
 };
