@@ -1,47 +1,11 @@
-import React from "react";
-import { fetchAllStories, fetchPublications, fetchStory } from "@/app/utils";
-
-/**
- * Because static paths are not revalidated, we need to set this to true.
- * This will generate the new paths on demand.
- * Because Next.js will cache everything, the API will only be called once.
- */
-export const dynamicParams = true;
-
-/**
- This function is called at build time to generate the static paths.
- Important: This function won't be called when revalidating.
-*/
-export const generateStaticParams = async () => {
-  const stories = await fetchAllStories();
-  const publications = await fetchPublications();
-
-  let paths = [] as { publication: string; story: string }[];
-
-  publications.forEach((publication) => {
-    const storiesForPublication = stories.filter((story) => publication?.allStories?.includes(story._id));
-    return storiesForPublication.forEach((story) => {
-      paths.push({
-        publication: publication.Slug,
-        story: story.Slug,
-      });
-    });
-  });
-
-  return paths;
-};
-
-export default async function Story({ params }: { params: { story: string } }) {
-  const story = await fetchStory(params.story);
-
-  return <div className="p-6">
-    <main>
+export default function About() {
+    return <main>
         <div className="article-container">
             <article>
                 <div className="article-header-sctn">
                     <ul>Categories</ul>
                     <span>Publication</span>
-                    <h1>{story.titlePrimary}</h1>
+                    <h1>Story Title</h1>
                     <h2>Story description</h2>
                     <div className="author-snippet">
                         <p>Author Name and description</p>
@@ -68,7 +32,7 @@ export default async function Story({ params }: { params: { story: string } }) {
                         <p>Intro paragraph with unique styling</p>
                     </div>
                     <div className="body-set-html">
-                    {story?.innerHtml && <p dangerouslySetInnerHTML={{ __html: story.innerHtml }} />}
+                        <p>Inner set html paragraphs and headers</p>
                     </div>
                 </div>
             </article>
@@ -80,7 +44,5 @@ export default async function Story({ params }: { params: { story: string } }) {
                 </ul>
             </div>
         </div>
-    </main>
-    </div>
-    ;
+    </main>;
 }
