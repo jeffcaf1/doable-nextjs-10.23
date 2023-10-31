@@ -1,0 +1,53 @@
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-list-header {
+  border-left: 3px solid var(--border);
+  padding: 0.625rem;
+}
+
+.card-list-title {
+  background: var(--border);
+  font-size: 1.4375rem;
+  width: max-content;
+  min-width: 18.75rem;
+  text-align: center;
+  padding: 0.1rem 1.5rem;
+}
+
+.card-list-variant-large {
+  gap: 3rem;
+}
+
+.card-list-variant-large .card-list-header {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .card-list-title {
+    background: var(--border);
+    font-size: 1.25rem;
+    width: max-content;
+    min-width: 10rem;
+    text-align: center;
+    padding: 0.2rem 1.5rem;
+  }
+
+  .card-list {
+    gap: 1.5rem;
+  }
+
+  .card-list-header {
+    padding: 0.625rem 0.625rem 0.625rem 0;
+    border-left: none;
+  }
+
+  .card-list-variant-large {
+    gap: 3rem;
+  }
+}

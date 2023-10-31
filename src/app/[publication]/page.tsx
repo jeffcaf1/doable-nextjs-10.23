@@ -1,5 +1,9 @@
 import React from "react";
 import { fetchPublications, fetchStoriesForPublication } from "../utils";
+import Card from "@/lib/Card/Card";
+import ArticleList from "@/lib/CardList/CardList";
+import CardList from "@/lib/CardList/CardList";
+import Layout from "@/lib/Templates/Template-0/PublicationLayout";
 
 /**
  * Because static paths are not revalidated, we need to set this to true.
@@ -33,8 +37,10 @@ export default async function Publication({ params }: { params: { publication: s
   const stories = await fetchStoriesForPublication(currentPublication?._id);
 
   return (
-    <main className="main-container">
-      <div className="prose lg:prose-xl">
+    <main className="page-main">
+      <Layout />
+
+      {/* <div className="prose lg:prose-xl">
         <div className="header-sctn">
           <h1>{currentPublication?.primaryTitle}</h1>
         </div>
@@ -61,7 +67,7 @@ export default async function Publication({ params }: { params: { publication: s
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }

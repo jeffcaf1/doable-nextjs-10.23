@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchAllStories, fetchPublications, fetchStory } from "@/app/utils";
-import Template0 from "@/lib/Templates/Template-0/Layout";
+import Template0 from "@/lib/Templates/Template-0/ArticleLayout";
 import { Metadata, ResolvingMetadata } from "next";
 
 /**

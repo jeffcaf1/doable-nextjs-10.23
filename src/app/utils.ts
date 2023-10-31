@@ -12,7 +12,12 @@ export const fetchPublications = async (start = 0) => {
 
   let publications = [] as PublicationFromAPI[];
 
-  const { response } = await fetch(API_ENDPOINT_PUBLICATIONS + start, { next: { tags: ["publication"] } })
+  const { response } = await fetch(
+    API_ENDPOINT_PUBLICATIONS +
+      start +
+      `[{"key": "draft", "constraint_type": "equals", "value": false} , {"key": "privateclient", "constraint_type": "equals", "value": false} , {"key": "allstories", "constraint_type": "not empty}]`,
+    { next: { tags: ["publication"] } }
+  )
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -43,7 +48,7 @@ export const fetchStoriesForPublication = async (publicationId: string, start = 
   const API_ENDPOINT_STORIES = API_ENDPOINT + "/obj/story?cursor=";
 
   const getApiEndpointForStories = (publicationId: string, start = 0) => {
-    const url = `${API_ENDPOINT_STORIES}${start}/&constraints=[{"key": "draft", "constraint_type": "equals", "value": "false"}, {"key": " parentPublication", "constraint_type": "equals", "value": "${publicationId}"}]`;
+    const url = `${API_ENDPOINT_STORIES}${start}/&constraints=[{"key": "draft", "constraint_type": "equals", "value": "false"}, {"key": " parentPublication", "constraint_type": "equals", "value": "${publicationId}"}, {"key": "approved", "constraint_type": "equals", "value": true}, {"key": "isTemplate", "constraint_type": "equals", "value": false}]`;
     return encodeURI(url);
   };
 
