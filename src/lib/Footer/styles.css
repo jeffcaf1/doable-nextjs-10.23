@@ -1,0 +1,144 @@
+.footer-outer {
+  padding-top: 0.625rem;
+  height: 19rem;
+}
+
+.footer-inner {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-inner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem;
+  padding-bottom: 0;
+}
+
+.footer-inner-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-inner-left,
+.footer-inner-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.footer-left-nav {
+  padding: 0.625rem;
+  padding-bottom: 0;
+  border-left: 3px solid var(--border);
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-nav-title {
+  color: var(--text-footer);
+  opacity: 0.8;
+  font-weight: 600;
+  font-size: 1.0625rem;
+}
+
+.footer-nav-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.325rem;
+  width: 6.9375rem;
+}
+
+.footer-link {
+  color: var(--text-footer);
+  font-weight: 300;
+}
+
+.footer-nav-social {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  width: 6.9375rem;
+}
+
+.footer-social-icon {
+  height: 1.625rem;
+  width: 1.625rem;
+}
+
+.footer-legal {
+  font-size: 0.875rem;
+  color: var(--text-footer);
+  opacity: 0.45;
+  margin-bottom: 0.3125rem;
+}
+
+.footer-inner-right-container {
+  padding-right: 0.625rem;
+  border-right: 3px solid var(--border);
+  width: max-content;
+  margin-left: auto;
+}
+
+.footer-logo {
+  width: 25rem;
+}
+
+@media (max-width: 768px) {
+  .footer-outer {
+    height: max-content;
+  }
+
+  .footer-inner-top {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0.625rem;
+  }
+
+  .footer-inner-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-inner {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .footer-inner-left,
+  .footer-inner-right {
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-left-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-nav-column,
+  .footer-nav-social {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-legal {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-logo {
+    width: 100%;
+    max-width: 29.75rem;
+    padding: 0 0.625rem;
+  }
+
+  .footer-inner-right-container {
+    margin: 0;
+    width: 100%;
+  }
+}

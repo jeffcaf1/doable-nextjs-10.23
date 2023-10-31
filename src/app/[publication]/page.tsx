@@ -36,9 +36,9 @@ export default async function Publication({ params }: { params: { publication: s
     <main className="main-container">
       <div className="prose lg:prose-xl">
         <div className="header-sctn">
-              <h1>{currentPublication.primaryTitle}</h1>
-            </div>
-            <div className="ftrd-stories-sctn">
+          <h1>{currentPublication.primaryTitle}</h1>
+        </div>
+        <div className="ftrd-stories-sctn">
           <h3>Featured Stories</h3>
           {stories.slice(0, 3).map(({ titlePrimary, Slug }) => (
             <div>
@@ -50,9 +50,9 @@ export default async function Publication({ params }: { params: { publication: s
         </div>
         <div className="all-stories-srch-sort-filter">
           <h3>All Stories</h3>
-        <div className="srch-sort-filter-sctn">
-<span>Search/Sort/Filter</span>
-        </div>
+          <div className="srch-sort-filter-sctn">
+            <span>Search/Sort/Filter</span>
+          </div>
           {stories.map(({ titlePrimary, Slug }) => (
             <div>
               <a href={`/${currentPublication.Slug}/${Slug}`} key={Slug} className="underline">

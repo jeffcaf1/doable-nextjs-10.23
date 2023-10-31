@@ -1,0 +1,12 @@
+.template-0 .article-cover-image {
+  width: 31.5rem;
+  flex-shrink: 0;
+  box-shadow: rgba(34, 67, 49, 0.25) 2px 2px 6px 1px;
+}
+
+@media (max-width: 768px) {
+  .template-0 .article-cover-image {
+    width: 95%;
+    margin: 0 auto;
+  }
+}

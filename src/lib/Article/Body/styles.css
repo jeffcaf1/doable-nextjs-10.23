@@ -1,0 +1,43 @@
+.template-0 .body-container {
+  max-width: 48rem;
+  width: 100%;
+}
+
+.template-0 .body-container h2 {
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  border-left: 3px solid var(--border);
+  padding-left: 0.325rem;
+  margin-bottom: 2.1875rem;
+}
+
+.template-0 .body-container h2:last-child {
+  margin-top: 0;
+}
+
+.template-0 .body-container p {
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+  margin-bottom: 1.375rem;
+}
+
+.template-0 .body-container p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .template-0 .body-container {
+    max-width: 100%;
+  }
+
+  .template-0 .body-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .template-0 .body-container p {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+}

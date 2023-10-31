@@ -1,0 +1,19 @@
+.template-0 .intro-container {
+  width: 75%;
+}
+
+.template-0 .intro-container p {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+}
+
+@media (max-width: 768px) {
+  .template-0 .intro-container {
+    width: 100%;
+  }
+
+  .template-0 .intro-container p {
+    font-size: 1.0625rem;
+  }
+}

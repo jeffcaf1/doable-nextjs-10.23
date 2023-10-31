@@ -1,0 +1,44 @@
+.template-0 .keypoints-container {
+  border-left: 1px solid var(--border);
+  padding-left: 0.325rem;
+  width: 100%;
+  height: max-content;
+}
+
+.template-0 .keypoints-container h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.template-0 .keypoints > ul {
+  font-size: 1.0625rem;
+  max-width: 31.25rem;
+  margin-left: 0.325rem;
+  margin-top: 0.625rem;
+  border-left: 3px solid var(--border);
+  padding-left: 0.625rem;
+}
+
+.template-0 .keypoints > ul > li {
+  margin-bottom: 0.625rem;
+}
+
+.template-0 .keypoints > ul > li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .template-0 .keypoints-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .template-0 .keypoints-container h3 {
+    font-size: 1.25rem;
+  }
+
+  .template-0 .keypoints > ul {
+    font-size: 0.9375rem;
+  }
+}

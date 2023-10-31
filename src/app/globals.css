@@ -1,3 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #3d7b5a;
+    --bg-accent: #ffca4608;
+    --border: #ffca46;
+    --text-body: #000000;
+    --text-title-primary: #fff7cd;
+    --text-title-accent: #ffffff;
+    --text-heading: #224331;
+    --text-footer: #ffffff;
+    --text-footer-accent: #ffffffcc;
+    --button-bg: #fff7cd;
+    --button-text: #000000;
+
+    --max-page-width: 76.25rem;
+  }
+
+  * {
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+}
+
+body {
+  background: var(--bg-accent);
+  color: var(--text-body);
+}
+
+/* Reusable Classes */
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-bg);
+  font-weight: 500;
+  width: 10.625rem;
+  height: 2.25rem;
+  font-size: 0.9375rem;
+}
+
+.hover {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.hover:hover {
+  opacity: 1;
+}
+
+.outer {
+  background: var(--bg-primary);
+}
+
+.inner {
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-left: 1px solid var(--border);
+  padding-left: 0.625rem;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .outer {
+    padding: 0 0.3125rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
