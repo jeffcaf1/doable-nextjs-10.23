@@ -10,15 +10,15 @@ import Body from "../../Article/Body/Body";
 const Template0 = ({ story }: { story: StoryFromAPI }) => {
   return (
     <article className="article template-0">
-      <Header title={story.titlePrimary} description={story.description} />
+      <Header title={story?.titlePrimary} description={story?.description} />
 
       <section className="article-content">
         <div className="article-content-header">
-          <CoverImage src={story.heroImageUrl} caption={story.heroImageCaption} />
-          <Keypoints html={story.innerHtmlKeyPoints} />
+          <CoverImage src={story?.heroImageUrl} caption={story?.heroImageCaption} />
+          {story?.innerHtmlKeyPoints && <Keypoints html={story.innerHtmlKeyPoints} />}
         </div>
-        <Intro html={story.innerHtmlIntroGraf} />
-        <Body html={story.innerHtmlBody} />
+        {story?.innerHtmlIntroGraf && <Intro html={story.innerHtmlIntroGraf} />}
+        {story?.innerHtmlBody && <Body html={story.innerHtmlBody} />}
       </section>
     </article>
   );

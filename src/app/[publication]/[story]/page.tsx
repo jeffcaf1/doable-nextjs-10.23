@@ -37,11 +37,9 @@ export const generateStaticParams = async () => {
 export async function generateMetadata({ params }: { params: { story: string } }): Promise<Metadata> {
   const story = await fetchStory(params.story);
 
-  console.log("story", story);
-
   return {
-    title: story.titlePrimary,
-    description: story.description,
+    title: story?.titlePrimary || "",
+    description: story?.description || "",
   };
 }
 

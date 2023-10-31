@@ -28,7 +28,7 @@ export const fetchPublications = async (start = 0) => {
     publications.push(...(await fetchPublications(response.count)));
   }
 
-  console.log("Publications fetched: ", publications.length);
+  //console.log("Publications fetched: ", publications.length);
 
   return publications;
 };
@@ -65,7 +65,7 @@ export const fetchStoriesForPublication = async (publicationId: string, start = 
     stories.push(...(await fetchStoriesForPublication(publicationId, response.count)));
   }
 
-  console.log("Stories fetched for publication: ", stories.length);
+  //console.log("Stories fetched for publication: ", stories.length);
 
   return stories;
 };
@@ -97,7 +97,7 @@ export const fetchStory = async (slug: string) => {
 
   story = results[0];
 
-  console.log("Story fetched: ", story?._id);
+  //console.log("Story fetched: ", story?._id);
 
   return story;
 };
