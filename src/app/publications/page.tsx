@@ -1,12 +1,35 @@
 import Layout from "@/lib/Templates/Template-0/PublicationsLayout";
-import { fetchPublications } from "../utils";
+import { fetchPublications, parsePublication } from "../utils";
 
 export default async function Publications() {
-  const publications = await fetchPublications();
+  const featuredPublications = await fetchPublications({
+    customConstraints: [
+      {
+        key: "isFeaturedTop3",
+        constraint_type: "equals",
+        value: "true",
+      },
+    ],
+  });
+
+  const allPublications = await fetchPublications();
 
   return (
     <main className="page-main">
-      <Layout />
+      <Layout
+        sections={[
+          {
+            title: "Featured Publications",
+            articles: featuredPublications.map(parsePublication),
+            variant: "small",
+          },
+          {
+            title: "All Publications",
+            articles: allPublications.map(parsePublication),
+            variant: "small",
+          },
+        ]}
+      />
       {/* <div className="prose lg:prose-xl">
         <div className="header-sctn">
           <h1>{currentPublication?.primaryTitle}</h1>

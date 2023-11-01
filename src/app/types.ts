@@ -10,6 +10,7 @@ export type PublicationFromAPI = {
   primaryTitle: string;
   secondaryTitle: string;
   about: string;
+  heroImageUrl: string;
 };
 
 export type StoryFromAPI = {
@@ -30,4 +31,11 @@ export type StoryFromAPI = {
   innerHtmlBody: string;
   relatedStories?: string[];
   featuredPplAndCosProfiles?: string[];
+  parentPublication: string;
+};
+
+export type Constraint = {
+  key: string;
+  constraint_type: string;
+  value?: string;
 };

@@ -1,4 +1,4 @@
-import { PublicationFromAPI, StoryFromAPI } from "./types";
+import { Constraint, PublicationFromAPI, StoryFromAPI } from "./types";
 
 const API_ENDPOINT = process.env.API_ENDPOINT;
 
@@ -7,17 +7,30 @@ const API_ENDPOINT = process.env.API_ENDPOINT;
  * @param start - The starting index for the API call
  * @returns An array of publications
  */
-export const fetchPublications = async (start = 0) => {
+export const fetchPublications = async ({ start = 0, customConstraints = [] }: { start?: number; customConstraints?: Constraint[] } = {}) => {
   const API_ENDPOINT_PUBLICATIONS = API_ENDPOINT + "/obj/publication?cursor=";
 
   let publications = [] as PublicationFromAPI[];
 
-  const { response } = await fetch(
-    API_ENDPOINT_PUBLICATIONS +
-      start +
-      `[{"key": "draft", "constraint_type": "equals", "value": false} , {"key": "privateclient", "constraint_type": "equals", "value": false} , {"key": "allstories", "constraint_type": "not empty}]`,
-    { next: { tags: ["publication"] } }
-  )
+  const constraints = [
+    {
+      key: "draft",
+      constraint_type: "equals",
+      value: false,
+    },
+    {
+      key: "privateclient",
+      constraint_type: "equals",
+      value: false,
+    },
+    {
+      key: "allstories",
+      constraint_type: "not empty",
+    },
+    ...customConstraints,
+  ];
+
+  const { response } = await fetch(API_ENDPOINT_PUBLICATIONS + start + "/&constraints=" + JSON.stringify(constraints), { next: { tags: ["publication"] } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -30,7 +43,7 @@ export const fetchPublications = async (start = 0) => {
   publications.push(...results);
 
   if (response.remaining > 0) {
-    publications.push(...(await fetchPublications(response.count)));
+    publications.push(...(await fetchPublications({ start: response.count })));
   }
 
   //console.log("Publications fetched: ", publications.length);
@@ -38,23 +51,36 @@ export const fetchPublications = async (start = 0) => {
   return publications;
 };
 
-/**
- * Fetches all available stories for a specific publication from the API
- * @param publicationId - The publication ID to fetch stories for
- * @param start - The starting index for the API call, defaults to 0
- * @returns An array of stories
- */
-export const fetchStoriesForPublication = async (publicationId: string, start = 0) => {
+export const fetchStories = async ({ start = 0, customConstraints = [] }: { start?: number; customConstraints?: Constraint[] } = {}) => {
   const API_ENDPOINT_STORIES = API_ENDPOINT + "/obj/story?cursor=";
 
-  const getApiEndpointForStories = (publicationId: string, start = 0) => {
-    const url = `${API_ENDPOINT_STORIES}${start}/&constraints=[{"key": "draft", "constraint_type": "equals", "value": "false"}, {"key": " parentPublication", "constraint_type": "equals", "value": "${publicationId}"}, {"key": "approved", "constraint_type": "equals", "value": true}, {"key": "isTemplate", "constraint_type": "equals", "value": false}]`;
+  const constraints = [
+    {
+      key: "draft",
+      constraint_type: "equals",
+      value: false,
+    },
+    {
+      key: "approved",
+      constraint_type: "equals",
+      value: true,
+    },
+    {
+      key: "isTemplate",
+      constraint_type: "equals",
+      value: false,
+    },
+    ...customConstraints,
+  ];
+
+  const getApiEndpointForStories = (start = 0) => {
+    const url = `${API_ENDPOINT_STORIES}${start}/&constraints=${JSON.stringify(constraints)}`;
     return encodeURI(url);
   };
 
   let stories = [] as StoryFromAPI[];
 
-  const { response } = await fetch(getApiEndpointForStories(publicationId), { next: { tags: ["story"] } })
+  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["story"] } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -67,7 +93,7 @@ export const fetchStoriesForPublication = async (publicationId: string, start = 
   stories.push(...results);
 
   if (response?.remaining > 0) {
-    stories.push(...(await fetchStoriesForPublication(publicationId, response.count)));
+    stories.push(...(await fetchStories({ start: response.count, customConstraints })));
   }
 
   //console.log("Stories fetched for publication: ", stories.length);
@@ -107,33 +133,20 @@ export const fetchStory = async (slug: string) => {
   return story;
 };
 
-/**
- * Fetches all available stories from the API
- * @param start - The starting index for the API call
- * @returns An array of stories
- */
-export const fetchAllStories = async (start = 0) => {
-  const API_ENDPOINT_STORIES = API_ENDPOINT + "/obj/story?cursor=";
+export const parsePublication = (publication: PublicationFromAPI) => {
+  return {
+    title: publication?.primaryTitle,
+    description: publication?.about,
+    image: publication?.heroImageUrl,
+    link: `/${publication?.Slug}`,
+  };
+};
 
-  let stories = [] as StoryFromAPI[];
-
-  const { response } = await fetch(API_ENDPOINT_STORIES + start, { next: { tags: ["story"] } })
-    .then((res) => res.json())
-    .then((data) => data)
-    .catch((err) => {
-      console.log(err);
-      return [err];
-    });
-
-  const results = response.results as StoryFromAPI[];
-
-  stories.push(...results);
-
-  console.log("Stories fetched: ", stories.length);
-
-  if (response.remaining > 0) {
-    stories.push(...(await fetchAllStories(response.count)));
-  }
-
-  return stories;
+export const parseStory = (story: StoryFromAPI, publicationSlug: string) => {
+  return {
+    title: story?.titlePrimary,
+    description: story?.description,
+    image: story?.heroImageUrl,
+    link: `/${publicationSlug}/${story?.Slug}`,
+  };
 };

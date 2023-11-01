@@ -1,8 +1,5 @@
 import React from "react";
-import { fetchPublications, fetchStoriesForPublication } from "../utils";
-import Card from "@/lib/Card/Card";
-import ArticleList from "@/lib/CardList/CardList";
-import CardList from "@/lib/CardList/CardList";
+import { fetchPublications, fetchStories, parseStory } from "../utils";
 import Layout from "@/lib/Templates/Template-0/PublicationLayout";
 
 /**
@@ -31,14 +28,40 @@ export const generateStaticParams = async () => {
 };
 
 export default async function Publication({ params }: { params: { publication: string } }) {
-  const publications = await fetchPublications();
-  const currentPublication = publications.find(({ Slug }) => Slug === params.publication)!;
+  console.log(params, "params");
 
-  const stories = await fetchStoriesForPublication(currentPublication?._id);
+  const publications = await fetchPublications();
+
+  const currentPublication = publications[0];
+
+  console.log(currentPublication, "currentPublication");
+
+  const stories = await fetchStories({
+    customConstraints: [
+      {
+        key: "parentPublication",
+        constraint_type: "equals",
+        value: currentPublication?._id,
+      },
+    ],
+  });
 
   return (
     <main className="page-main">
-      <Layout />
+      <Layout
+        sections={[
+          {
+            title: "Featured Stories",
+            articles: stories.slice(0, 3).map((story) => parseStory(story, currentPublication?.Slug || "")),
+            variant: "large",
+          },
+          {
+            title: "All Stories",
+            articles: stories.map((story) => parseStory(story, currentPublication?.Slug || "")),
+            variant: "small",
+          },
+        ]}
+      />
 
       {/* <div className="prose lg:prose-xl">
         <div className="header-sctn">

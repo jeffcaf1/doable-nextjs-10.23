@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchAllStories, fetchPublications, fetchStory } from "@/app/utils";
+import { fetchPublications, fetchStories, fetchStory } from "@/app/utils";
 import Template0 from "@/lib/Templates/Template-0/ArticleLayout";
 import { Metadata, ResolvingMetadata } from "next";
 
@@ -15,7 +15,7 @@ export const dynamicParams = true;
  Important: This function won't be called when revalidating.
 */
 export const generateStaticParams = async () => {
-  const stories = await fetchAllStories();
+  const stories = await fetchStories();
   const publications = await fetchPublications();
 
   let paths = [] as { publication: string; story: string }[];
