@@ -1,4 +1,4 @@
-import Layout from "@/lib/Templates/Template-0/HomepageLayout";
+import Layout from "@/lib/Layouts/HomepageLayout";
 import { fetchPublications, fetchStories, parsePublication, parseStory } from "./utils";
 
 export default async function Home() {

@@ -1,4 +1,4 @@
-import Layout from "@/lib/Templates/Template-0/PublicationsLayout";
+import Layout from "@/lib/Layouts/PublicationsLayout";
 import { fetchPublications, parsePublication } from "../utils";
 
 export default async function Publications() {

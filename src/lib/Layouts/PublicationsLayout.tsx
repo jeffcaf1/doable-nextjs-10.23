@@ -1,9 +1,8 @@
 import React from "react";
 import "./styles.css";
-import ArticleList from "../../CardList/CardList";
-import Header from "../../Article/Header/Header";
-import CardList from "../../CardList/CardList";
-import { CardListProps } from "./types";
+import Header from "../Article/Header/Header";
+import CardList from "../CardList/CardList";
+import { CardListProps } from "../ArticleLayouts/Template-0/types";
 import { v4 } from "uuid";
 
 type PublicationsLayoutProps = {
@@ -18,7 +17,7 @@ const Layout = ({
   sections = [],
 }: PublicationsLayoutProps) => {
   return (
-    <section className="publications template-0">
+    <section className="publications">
       <Header title="Our Publications" description="Sub-heading for the all publications page describing what everything is" />
       <section className="publication-lists-container">
         {sections.map((section) => (

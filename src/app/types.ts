@@ -32,6 +32,7 @@ export type StoryFromAPI = {
   relatedStories?: string[];
   featuredPplAndCosProfiles?: string[];
   parentPublication: string;
+  parentPublicationTitle: string;
 };
 
 export type Constraint = {

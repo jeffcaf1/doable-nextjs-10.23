@@ -1,0 +1,17 @@
+.publication-lists-container,
+.stories-lists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: var(--max-page-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 3.125rem 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .publication-lists-container,
+  .stories-lists-container {
+    padding: 2.5rem 1.875rem;
+  }
+}

@@ -1,19 +1,42 @@
-.template-0 .intro-container {
+.intro-container {
   width: 75%;
 }
 
-.template-0 .intro-container p {
+.intro-container p {
   font-size: 1.25rem;
   line-height: 1.4;
   letter-spacing: 0.25px;
 }
 
+.intro-container a {
+  text-decoration: none;
+  position: relative;
+}
+
+.intro-container a::after {
+  content: "";
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  border-bottom: 8px solid var(--border);
+}
+
+.intro-container p:first-child::first-letter {
+  font-size: 5.75rem;
+  line-height: 0.9;
+  float: left;
+  margin-right: 0.625rem;
+  font-weight: 800;
+}
+
 @media (max-width: 768px) {
-  .template-0 .intro-container {
+  .intro-container {
     width: 100%;
   }
 
-  .template-0 .intro-container p {
+  .intro-container p {
     font-size: 1.0625rem;
   }
 }

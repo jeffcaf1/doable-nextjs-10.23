@@ -4,17 +4,19 @@ import "./styles.css";
 type HeaderProps = {
   title?: string;
   description: string;
+  publicationName?: string;
   customTitleComponent?: React.ReactNode;
 };
 
-const Header = ({ title, description, customTitleComponent }: HeaderProps) => {
+const Header = ({ title, description, publicationName, customTitleComponent }: HeaderProps) => {
   return (
-    <header className="outer header-outer">
-      <div className="inner header-inner">
-        <div className="header-inner-wrapper">
-          {!customTitleComponent && <h1 className="header-title">{title}</h1>}
+    <header className="outer article-header-outer">
+      <div className="inner article-header-inner">
+        <div className="article-header-inner-wrapper">
+          {publicationName && <h3 className="article-header-publication-name">{publicationName.toLocaleLowerCase()}</h3>}
+          {!customTitleComponent && <h1 className="article-header-title">{title}</h1>}
           {customTitleComponent && customTitleComponent}
-          <p className="header-description blockquote">{description}</p>
+          <p className="article-header-description blockquote">{description}</p>
         </div>
       </div>
     </header>

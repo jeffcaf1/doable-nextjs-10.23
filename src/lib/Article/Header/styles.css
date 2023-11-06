@@ -1,13 +1,13 @@
-.template-0 .header-outer {
+.article-header-outer {
   background: var(--bg-primary);
   padding-bottom: 2.5rem;
 }
 
-.template-0 .header-inner {
+.article-header-inner {
   padding-left: 0;
 }
 
-.header-inner-wrapper {
+.article-header-inner-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -18,13 +18,13 @@
   padding-left: 0.625rem;
 }
 
-.template-0 .header-title {
+.article-header-title {
   font-size: 3.625rem;
   line-height: 1;
   color: var(--text-title-primary);
 }
 
-.template-0 .header-description {
+.article-header-description {
   font-size: 1.1875rem;
   line-height: 1.4;
   color: var(--text-title-accent);
@@ -35,23 +35,40 @@
   margin-left: 0.625rem;
 }
 
+.article-header-publication-name {
+  color: var(--border);
+  font-size: 2rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  width: max-content;
+  padding-right: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  line-height: 1;
+}
+
 @media (max-width: 768px) {
-  .template-0 .header-outer {
+  .article-header-outer {
     padding-bottom: 0.625rem;
   }
 
-  .header-inner-wrapper {
+  .article-header-inner-wrapper {
     width: 100%;
     padding: 3.125rem 0.625rem;
   }
 
-  .template-0 .header-title {
+  .article-header-title {
     font-size: 2rem;
   }
 
-  .template-0 .header-description {
+  .article-header-description {
     width: 100%;
     margin-left: 0;
     font-size: 1rem;
+  }
+
+  .article-header-publication-name {
+    font-size: 1.1875rem;
+    padding-right: 0.1875rem;
+    padding-bottom: 0.1875rem;
   }
 }

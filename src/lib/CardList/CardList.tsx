@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./styles.css";
-import { CardListProps } from "../Templates/Template-0/types";
+import { CardListProps } from "../ArticleLayouts/Template-0/types";
 import { v4 } from "uuid";
 
 const CardList = ({ title = "Featured", articles = [], variant = "small" }: CardListProps) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchPublications, fetchStories, parseStory } from "../utils";
-import Layout from "@/lib/Templates/Template-0/PublicationLayout";
+import Layout from "@/lib/Layouts/PublicationLayout";
 
 /**
  * Because static paths are not revalidated, we need to set this to true.
@@ -30,7 +30,15 @@ export const generateStaticParams = async () => {
 export default async function Publication({ params }: { params: { publication: string } }) {
   console.log(params, "params");
 
-  const publications = await fetchPublications();
+  const publications = await fetchPublications({
+    customConstraints: [
+      {
+        key: "Slug",
+        constraint_type: "equals",
+        value: params.publication,
+      },
+    ],
+  });
 
   const currentPublication = publications[0];
 

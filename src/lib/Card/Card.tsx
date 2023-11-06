@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import { CardProps } from "../Templates/Template-0/types";
+import { CardProps } from "../ArticleLayouts/Template-0/types";
 
 const Card = ({
   variant = "small",

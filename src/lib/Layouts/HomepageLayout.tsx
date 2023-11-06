@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
-import Header from "../../Article/Header/Header";
-import CardList from "../../CardList/CardList";
-import { CardListProps } from "./types";
+import Header from "../Article/Header/Header";
+import CardList from "../CardList/CardList";
+import { CardListProps } from "../ArticleLayouts/Template-0/types";
 import { v4 } from "uuid";
 import { Title } from "./HomepageTitle";
 
@@ -12,7 +12,7 @@ type HomepageLayoutProps = {
 
 const Layout = ({ sections = [] }: HomepageLayoutProps) => {
   return (
-    <section className="publications template-0">
+    <section className="publications">
       <Header
         customTitleComponent={<Title />}
         description="Doable is a conversational content platform bringing you interviews and insights from top B2B thought leaders"
