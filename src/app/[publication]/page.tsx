@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchPublications, fetchStories, parseStory } from "../utils";
 import Layout from "@/lib/Layouts/PublicationLayout";
+import { Metadata } from "next";
 
 /**
  * Because static paths are not revalidated, we need to set this to true.
@@ -27,9 +28,8 @@ export const generateStaticParams = async () => {
   return paths;
 };
 
-export default async function Publication({ params }: { params: { publication: string } }) {
-  console.log(params, "params");
-
+// Generate metadata for the page
+export async function generateMetadata({ params }: { params: { publication: string } }): Promise<Metadata> {
   const publications = await fetchPublications({
     customConstraints: [
       {
@@ -42,7 +42,24 @@ export default async function Publication({ params }: { params: { publication: s
 
   const currentPublication = publications[0];
 
-  console.log(currentPublication, "currentPublication");
+  return {
+    title: currentPublication?.primaryTitle || "",
+    description: currentPublication?.about || "",
+  };
+}
+
+export default async function Publication({ params }: { params: { publication: string } }) {
+  const publications = await fetchPublications({
+    customConstraints: [
+      {
+        key: "Slug",
+        constraint_type: "equals",
+        value: params.publication,
+      },
+    ],
+  });
+
+  const currentPublication = publications[0];
 
   const stories = await fetchStories({
     customConstraints: [
@@ -69,6 +86,8 @@ export default async function Publication({ params }: { params: { publication: s
             variant: "small",
           },
         ]}
+        title={currentPublication?.primaryTitle}
+        description={currentPublication?.about}
       />
 
       {/* <div className="prose lg:prose-xl">
