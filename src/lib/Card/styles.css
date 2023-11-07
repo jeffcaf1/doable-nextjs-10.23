@@ -8,6 +8,7 @@
 
 .card-image {
   width: 20rem;
+  object-fit: cover;
   box-shadow: rgba(34, 67, 49, 0.25) 2px 2px 6px 1px;
   aspect-ratio: 16 / 9;
 }

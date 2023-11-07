@@ -1,6 +1,7 @@
 import { Constraint, PublicationFromAPI, StoryFromAPI } from "./types";
 
 const API_ENDPOINT = process.env.API_ENDPOINT;
+const API_TOKEN = process.env.API_TOKEN;
 
 /**
  * Fetches all available publications from the API
@@ -30,7 +31,12 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
     ...customConstraints,
   ];
 
-  const { response } = await fetch(API_ENDPOINT_PUBLICATIONS + start + "/&constraints=" + JSON.stringify(constraints), { next: { tags: ["publication"] } })
+  const { response } = await fetch(API_ENDPOINT_PUBLICATIONS + start + "/&constraints=" + JSON.stringify(constraints), {
+    next: { tags: ["publication"] },
+    headers: {
+      Authorization: `Bearer ${API_TOKEN}`,
+    },
+  })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -80,7 +86,7 @@ export const fetchStories = async ({ start = 0, customConstraints = [] }: { star
 
   let stories = [] as StoryFromAPI[];
 
-  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["story"] } })
+  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["story"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -116,7 +122,7 @@ export const fetchStory = async (slug: string) => {
 
   let story = {} as StoryFromAPI;
 
-  const { response } = await fetch(getApiEndpointForStories(slug), { next: { tags: ["story"] } })
+  const { response } = await fetch(getApiEndpointForStories(slug), { next: { tags: ["story"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
