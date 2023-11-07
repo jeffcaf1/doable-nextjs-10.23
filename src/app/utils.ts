@@ -6,6 +6,7 @@ const API_TOKEN = process.env.API_TOKEN;
 /**
  * Fetches all available publications from the API
  * @param start - The starting index for the API call
+ * @param customConstraints - Custom constraints to add to the API call
  * @returns An array of publications
  */
 export const fetchPublications = async ({ start = 0, customConstraints = [] }: { start?: number; customConstraints?: Constraint[] } = {}) => {
@@ -57,6 +58,12 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
   return publications;
 };
 
+/**
+ * Fetches multiple stories from the API based on the constraints, if no constraints are provided it will fetch all stories
+ * @param start - The starting index for the API call
+ * @param customConstraints - Custom constraints to add to the API call
+ * @returns The publication
+ */
 export const fetchStories = async ({ start = 0, customConstraints = [] }: { start?: number; customConstraints?: Constraint[] } = {}) => {
   const API_ENDPOINT_STORIES = API_ENDPOINT + "/obj/story?cursor=";
 
@@ -139,6 +146,7 @@ export const fetchStory = async (slug: string) => {
   return story;
 };
 
+// Helper functions to parse the publication data from the API to the format we need for the Card components
 export const parsePublication = (publication: PublicationFromAPI) => {
   return {
     title: publication?.primaryTitle,
@@ -148,6 +156,7 @@ export const parsePublication = (publication: PublicationFromAPI) => {
   };
 };
 
+// Helper functions to parse the story data from the API to the format we need for the Card components
 export const parseStory = (story: StoryFromAPI, publicationSlug: string) => {
   return {
     title: story?.titlePrimary,
@@ -155,4 +164,39 @@ export const parseStory = (story: StoryFromAPI, publicationSlug: string) => {
     image: story?.heroImageUrl,
     link: `/${publicationSlug}/${story?.Slug}`,
   };
+};
+
+// Get all stories paths, used for the sitemap.xml and generating the static pages
+export const getStoriesPaths = async () => {
+  const stories = await fetchStories();
+  const publications = await fetchPublications();
+
+  let paths = [] as { publication: string; story: string }[];
+
+  publications.forEach((publication) => {
+    const storiesForPublication = stories.filter((story) => publication?.allStories?.includes(story._id));
+    return storiesForPublication.forEach((story) => {
+      paths.push({
+        publication: publication.Slug,
+        story: story.Slug,
+      });
+    });
+  });
+
+  return paths;
+};
+
+// Get all publications paths, used for the sitemap.xml and generating the static pages
+export const getPublicationsPaths = async () => {
+  const publications = await fetchPublications();
+
+  let paths = [] as { publication: string }[];
+
+  publications.forEach((publication) => {
+    paths.push({
+      publication: publication.Slug,
+    });
+  });
+
+  return paths;
 };

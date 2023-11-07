@@ -11,6 +11,7 @@ export type PublicationFromAPI = {
   secondaryTitle: string;
   about: string;
   heroImageUrl: string;
+  relatedPublications?: string[];
 };
 
 export type StoryFromAPI = {

@@ -17,6 +17,11 @@
   width: 100%;
 }
 
+.article-sections-container {
+  border: none;
+  padding-bottom: 3.125rem;
+}
+
 @media (max-width: 768px) {
   .article-content {
     padding-right: 0.625rem;
