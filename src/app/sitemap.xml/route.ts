@@ -1,6 +1,6 @@
 import { getPublicationsPaths, getStoriesPaths } from "../utils";
 
-const ROOT = "https://www.xdoable.com";
+const ROOT = "https://www.alldoable.com";
 
 function generateSiteMap(publications: { publication: string }[], stories: { publication: string; story: string }[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
