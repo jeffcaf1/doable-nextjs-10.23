@@ -37,6 +37,8 @@ export async function generateMetadata({ params }: { params: { publication: stri
 }
 
 export default async function Publication({ params }: { params: { publication: string } }) {
+  console.log("domain", decodeURIComponent(params.publication));
+
   // Fetch the current publication
   const currentPublication = await fetchPublications({
     customConstraints: [
