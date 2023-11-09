@@ -78,11 +78,15 @@ export default async function Publication({ params }: { params: { publication: s
   });
 
   // Fetch all related publications for the current publication
-  const relatedPublications = await Promise.all(
-    (currentPublication?.relatedPublications || [])?.map(
-      async (publication) => (await fetchPublications({ customConstraints: [{ key: "_id", constraint_type: "equals", value: publication }] }))[0]
+  const relatedPublications = (
+    await Promise.all(
+      (currentPublication?.relatedPublications || [])?.map(
+        async (publication) => (await fetchPublications({ customConstraints: [{ key: "_id", constraint_type: "equals", value: publication }] }))[0]
+      )
     )
-  );
+  ).filter((publication) => !!publication);
+
+  console.log("currentPublication", relatedPublications);
 
   return (
     <main className="page-main">
