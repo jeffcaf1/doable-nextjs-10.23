@@ -31,7 +31,12 @@ export default async function middleware(req: NextRequest) {
 
   // if the path starts with /images then rewrite to /_static/images
   if (path.startsWith("/images")) {
-    return NextResponse.rewrite(new URL(`${path}`, `http://${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`));
+    return NextResponse.rewrite(
+      new URL(
+        `${path}`,
+        process.env.NODE_ENV === "development" ? `http://${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}` : `https://${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`
+      )
+    );
   }
 
   // rewrite everything else to `/[publication]/[story] dynamic route

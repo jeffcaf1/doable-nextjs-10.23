@@ -1,4 +1,4 @@
-import { fetchStories, fetchStory, getStoriesPaths, parseStory } from "@/app/utils";
+import { fetchPublications, fetchStories, fetchStory, getStoriesPaths, parseStory } from "@/app/utils";
 import Template0 from "@/lib/ArticleLayouts/Template-0/ArticleLayout";
 import { Metadata } from "next";
 
@@ -16,7 +16,7 @@ export const dynamicParams = true;
 export const generateStaticParams = getStoriesPaths();
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: { story: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { story: string; publication: string } }): Promise<Metadata> {
   const story = await fetchStory(params.story);
 
   return {
@@ -27,6 +27,26 @@ export async function generateMetadata({ params }: { params: { story: string } }
 
 export default async function Story({ params }: { params: { story: string; publication: string } }) {
   const story = await fetchStory(params.story);
+
+  const publication =
+    (await fetchPublications({
+      customConstraints: [
+        {
+          key: "Slug",
+          constraint_type: "equals",
+          value: params.publication,
+        },
+      ],
+    }).then((res) => res[0])) ||
+    (await fetchPublications({
+      customConstraints: [
+        {
+          key: "domain",
+          constraint_type: "equals",
+          value: decodeURIComponent(params.publication.replace("localhost:54321", process.env.NEXT_PUBLIC_ROOT_DOMAIN!)),
+        },
+      ],
+    }).then((res) => res[0]));
 
   // Fetch the related stories
   const relatedArticles = await Promise.all(
@@ -42,7 +62,7 @@ export default async function Story({ params }: { params: { story: string; publi
         sections={[
           {
             title: "Related Stories",
-            articles: relatedArticles.map((article) => parseStory(article, params.publication)),
+            articles: relatedArticles.map((article) => parseStory(article, params.publication, publication?.domain)),
             variant: "small",
           },
         ]}

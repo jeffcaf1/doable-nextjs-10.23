@@ -148,21 +148,33 @@ export const fetchStory = async (slug: string) => {
 
 // Helper functions to parse the publication data from the API to the format we need for the Card components
 export const parsePublication = (publication: PublicationFromAPI) => {
+  const isCustomDomain = publication.domain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
+
+  process.env.NODE_ENV === "development" &&
+    (publication.domain = publication.domain.replace(`.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`, `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`));
+
   return {
     title: publication?.primaryTitle,
     description: publication?.about,
     image: publication?.heroImageUrl,
-    link: `/${publication?.Slug}`,
+    link: !isCustomDomain ? `/${publication?.Slug}` : `http${process.env.NODE_ENV !== "development" ? "s" : ""}://${publication?.domain}`,
   };
 };
 
 // Helper functions to parse the story data from the API to the format we need for the Card components
-export const parseStory = (story: StoryFromAPI, publicationSlug: string) => {
+export const parseStory = (story: StoryFromAPI, publicationSlug: string, publicationDomain: string) => {
+  const isCustomDomain = publicationDomain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
+
+  process.env.NODE_ENV === "development" &&
+    (publicationDomain = publicationDomain.replace(`.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`, `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`));
+
   return {
     title: story?.titlePrimary,
     description: story?.description,
     image: story?.heroImageUrl,
-    link: `/${publicationSlug}/${story?.Slug}`,
+    link: !isCustomDomain
+      ? `/${publicationSlug}/${story?.Slug}`
+      : `http${process.env.NODE_ENV !== "development" ? "s" : ""}://${publicationDomain}/${story?.Slug}`,
   };
 };
 

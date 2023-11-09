@@ -12,6 +12,7 @@ export type PublicationFromAPI = {
   about: string;
   heroImageUrl: string;
   relatedPublications?: string[];
+  domain: string;
 };
 
 export type StoryFromAPI = {
