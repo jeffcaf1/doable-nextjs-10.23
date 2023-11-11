@@ -150,14 +150,13 @@ export const fetchStory = async (slug: string) => {
 export const parsePublication = (publication: PublicationFromAPI) => {
   const isCustomDomain = publication.domain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
 
-  process.env.NODE_ENV === "development" &&
-    (publication.domain = publication.domain.replace(`.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`, `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`));
+  const dev = process.env.NODE_ENV === "development";
 
   return {
     title: publication?.primaryTitle,
     description: publication?.about,
     image: publication?.heroImageUrl,
-    link: !isCustomDomain ? `/${publication?.Slug}` : `http${process.env.NODE_ENV !== "development" ? "s" : ""}://${publication?.domain}`,
+    link: !isCustomDomain ? `/${publication?.Slug}` : `http${!dev ? "s" : ""}://${publication?.domain}${dev ? ":54321" : ""}`,
   };
 };
 
@@ -165,16 +164,13 @@ export const parsePublication = (publication: PublicationFromAPI) => {
 export const parseStory = (story: StoryFromAPI, publicationSlug: string, publicationDomain: string) => {
   const isCustomDomain = publicationDomain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
 
-  process.env.NODE_ENV === "development" &&
-    (publicationDomain = publicationDomain.replace(`.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`, `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`));
+  const dev = process.env.NODE_ENV === "development";
 
   return {
     title: story?.titlePrimary,
     description: story?.description,
     image: story?.heroImageUrl,
-    link: !isCustomDomain
-      ? `/${publicationSlug}/${story?.Slug}`
-      : `http${process.env.NODE_ENV !== "development" ? "s" : ""}://${publicationDomain}/${story?.Slug}`,
+    link: !isCustomDomain ? `/${publicationSlug}/${story?.Slug}` : `http${!dev ? "s" : ""}://${publicationDomain}${dev ? ":54321" : ""}/${story?.Slug}`,
   };
 };
 

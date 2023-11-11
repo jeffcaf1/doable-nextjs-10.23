@@ -13,7 +13,10 @@ export const dynamicParams = true;
  This function is called at build time to generate the static paths.
  Important: This function won't be called when revalidating.
 */
-export const generateStaticParams = getStoriesPaths();
+// export const generateStaticParams = getStoriesPaths();
+export async function generateStaticParams() {
+  return getStoriesPaths();
+}
 
 // Generate metadata for the page
 export async function generateMetadata({ params }: { params: { story: string; publication: string } }): Promise<Metadata> {
@@ -37,16 +40,7 @@ export default async function Story({ params }: { params: { story: string; publi
           value: params.publication,
         },
       ],
-    }).then((res) => res[0])) ||
-    (await fetchPublications({
-      customConstraints: [
-        {
-          key: "domain",
-          constraint_type: "equals",
-          value: decodeURIComponent(params.publication.replace("localhost:54321", process.env.NEXT_PUBLIC_ROOT_DOMAIN!)),
-        },
-      ],
-    }).then((res) => res[0]));
+    }).then((res) => res[0])) || {};
 
   // Fetch the related stories
   const relatedArticles = await Promise.all(
