@@ -1,23 +1,25 @@
-import { getPublicationsPaths, getStoriesPaths } from "../utils";
+import { NextRequest } from "next/server";
+import { getPublicationsPaths, getStoriesPaths } from "../../utils";
+import { NextApiRequest } from "next";
 
-const ROOT = "https://www.alldoable.com";
+function generateSiteMap(host: string, publications: { publication: string }[], stories: { publication: string; story: string }[]) {
+  const root = `https://` + host;
 
-function generateSiteMap(publications: { publication: string }[], stories: { publication: string; story: string }[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
-       <loc>${ROOT}</loc>
+       <loc>${root}</loc>
        <lastmod>${new Date().toISOString()}</lastmod>
      </url>
      <url>
-       <loc>${ROOT}/publications</loc>
+       <loc>${root}/publications</loc>
        <lastmod>${new Date().toISOString()}</lastmod>
      </url>
      ${publications
        .map(({ publication }) => {
          return `
             <url>
-                <loc>${ROOT}/${publication}</loc>
+                <loc>${root}/${publication}</loc>
                 <lastmod>${new Date().toISOString()}</lastmod>
             </url>
      `;
@@ -27,7 +29,7 @@ function generateSiteMap(publications: { publication: string }[], stories: { pub
           .map(({ publication, story }) => {
             return `
                 <url>
-                    <loc>${ROOT}/${publication}/${story}</loc>
+                    <loc>${root}/${publication}/${story}</loc>
                     <lastmod>${new Date().toISOString()}</lastmod>
                 </url>
             `;
@@ -37,9 +39,9 @@ function generateSiteMap(publications: { publication: string }[], stories: { pub
  `;
 }
 
-export async function GET() {
+export async function GET(request: NextRequest, { params: { domain } }: { params: { domain: string } }) {
   // We generate the XML sitemap with the stories and publications data
-  const sitemap = generateSiteMap(await getPublicationsPaths(), await getStoriesPaths());
+  const sitemap = generateSiteMap(domain, await getPublicationsPaths(), await getStoriesPaths());
 
   return new Response(sitemap, {
     headers: {

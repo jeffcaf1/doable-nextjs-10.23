@@ -1,5 +1,5 @@
 import Layout from "@/lib/Layouts/PublicationsLayout";
-import { fetchPublications, parsePublication } from "../utils";
+import { fetchPublications, parsePublication } from "../../utils";
 
 export default async function Publications() {
   const featuredPublications = await fetchPublications({

@@ -148,29 +148,29 @@ export const fetchStory = async (slug: string) => {
 
 // Helper functions to parse the publication data from the API to the format we need for the Card components
 export const parsePublication = (publication: PublicationFromAPI) => {
-  const isCustomDomain = publication.domain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
+  // const isCustomDomain = publication.domain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
 
-  const dev = process.env.NODE_ENV === "development";
+  // const dev = process.env.NODE_ENV === "development";
 
   return {
     title: publication?.primaryTitle,
     description: publication?.about,
     image: publication?.heroImageUrl,
-    link: !isCustomDomain ? `/${publication?.Slug}` : `http${!dev ? "s" : ""}://${publication?.domain}${dev ? ":54321" : ""}`,
+    link: `/${publication?.Slug}`,
   };
 };
 
 // Helper functions to parse the story data from the API to the format we need for the Card components
 export const parseStory = (story: StoryFromAPI, publicationSlug: string, publicationDomain: string) => {
-  const isCustomDomain = publicationDomain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
+  //const isCustomDomain = publicationDomain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
 
-  const dev = process.env.NODE_ENV === "development";
+  //const dev = process.env.NODE_ENV === "development";
 
   return {
     title: story?.titlePrimary,
     description: story?.description,
     image: story?.heroImageUrl,
-    link: !isCustomDomain ? `/${publicationSlug}/${story?.Slug}` : `http${!dev ? "s" : ""}://${publicationDomain}${dev ? ":54321" : ""}/${story?.Slug}`,
+    link: `/${publicationSlug}/${story?.Slug}`,
   };
 };
 
@@ -179,12 +179,13 @@ export const getStoriesPaths = async () => {
   const stories = await fetchStories();
   const publications = await fetchPublications();
 
-  let paths = [] as { publication: string; story: string }[];
+  let paths = [] as { publication: string; story: string; domain: string }[];
 
   publications.forEach((publication) => {
     const storiesForPublication = stories.filter((story) => publication?.allStories?.includes(story._id));
     return storiesForPublication.forEach((story) => {
       paths.push({
+        domain: publication.domain,
         publication: publication.Slug,
         story: story.Slug,
       });
@@ -197,12 +198,34 @@ export const getStoriesPaths = async () => {
 // Get all publications paths, used for the sitemap.xml and generating the static pages
 export const getPublicationsPaths = async () => {
   const publications = await fetchPublications();
+  const domains = await getDomainPaths();
 
-  let paths = [] as { publication: string }[];
+  let paths = [] as { publication: string; domain: string }[];
+
+  domains.forEach((domain) => {
+    publications.forEach((publication) => {
+      paths.push({
+        domain: domain.domain,
+        publication: publication.Slug,
+      });
+    });
+  });
+
+  return paths;
+};
+
+// Get all domain paths, used for the sitemap.xml and generating the static pages
+export const getDomainPaths = async () => {
+  const publications = await fetchPublications();
+
+  let paths = [] as { domain: string }[];
 
   publications.forEach((publication) => {
+    // If the domain is already in the array, skip it
+    if (paths.find((path) => path.domain === publication.domain)) return;
+
     paths.push({
-      publication: publication.Slug,
+      domain: publication.domain,
     });
   });
 
