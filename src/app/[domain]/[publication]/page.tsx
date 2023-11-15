@@ -21,13 +21,18 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: { publication: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { publication: string; domain: string } }): Promise<Metadata> {
   const publications = await fetchPublications({
     customConstraints: [
       {
         key: "Slug",
         constraint_type: "equals",
         value: params.publication,
+      },
+      {
+        key: "domain",
+        constraint_type: "equals",
+        value: params.domain,
       },
     ],
   });
@@ -40,7 +45,7 @@ export async function generateMetadata({ params }: { params: { publication: stri
   };
 }
 
-export default async function Publication({ params }: { params: { publication: string } }) {
+export default async function Publication({ params }: { params: { publication: string; domain: string } }) {
   // Fetch the current publication
   const currentPublication = await fetchPublications({
     customConstraints: [
@@ -48,6 +53,11 @@ export default async function Publication({ params }: { params: { publication: s
         key: "Slug",
         constraint_type: "equals",
         value: params.publication,
+      },
+      {
+        key: "domain",
+        constraint_type: "equals",
+        value: params.domain,
       },
     ],
   }).then((res) => res[0]);
@@ -82,12 +92,12 @@ export default async function Publication({ params }: { params: { publication: s
         sections={[
           {
             title: "Featured Stories",
-            articles: stories.slice(0, 3).map((story) => parseStory(story, currentPublication?.Slug || "", currentPublication?.domain)),
+            articles: stories.slice(0, 3).map((story) => parseStory(story, currentPublication?.Slug || "")),
             variant: "large",
           },
           {
             title: "All Stories",
-            articles: stories.map((story) => parseStory(story, currentPublication?.Slug || "", currentPublication?.domain)),
+            articles: stories.map((story) => parseStory(story, currentPublication?.Slug || "")),
             variant: "small",
           },
           {

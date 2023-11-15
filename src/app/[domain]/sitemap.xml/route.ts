@@ -41,7 +41,8 @@ function generateSiteMap(host: string, publications: { publication: string }[], 
 
 export async function GET(request: NextRequest, { params: { domain } }: { params: { domain: string } }) {
   // We generate the XML sitemap with the stories and publications data
-  const sitemap = generateSiteMap(domain, await getPublicationsPaths(), await getStoriesPaths());
+
+  const sitemap = generateSiteMap(domain, await getPublicationsPaths(domain), await getStoriesPaths(domain));
 
   return new Response(sitemap, {
     headers: {

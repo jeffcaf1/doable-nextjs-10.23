@@ -28,19 +28,22 @@ export async function generateMetadata({ params }: { params: { story: string; pu
   };
 }
 
-export default async function Story({ params }: { params: { story: string; publication: string } }) {
+export default async function Story({ params }: { params: { story: string; publication: string; domain: string } }) {
   const story = await fetchStory(params.story);
 
-  const publication =
-    (await fetchPublications({
-      customConstraints: [
-        {
-          key: "Slug",
-          constraint_type: "equals",
-          value: params.publication,
-        },
-      ],
-    }).then((res) => res[0])) || {};
+  const currentPublication = await fetchPublications({
+    customConstraints: [
+      {
+        key: "Slug",
+        constraint_type: "equals",
+        value: params.publication,
+      },
+    ],
+  });
+
+  if (currentPublication[0]?.domain !== params.domain) {
+    return <div>Story Not found</div>;
+  }
 
   // Fetch the related stories
   const relatedArticles = await Promise.all(
@@ -56,7 +59,7 @@ export default async function Story({ params }: { params: { story: string; publi
         sections={[
           {
             title: "Related Stories",
-            articles: relatedArticles.map((article) => parseStory(article, params.publication, publication?.domain)),
+            articles: relatedArticles.map((article) => parseStory(article, params.publication)),
             variant: "small",
           },
         ]}

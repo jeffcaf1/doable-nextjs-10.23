@@ -146,12 +146,22 @@ export const fetchStory = async (slug: string) => {
   return story;
 };
 
+export const fetchPublicationsByDomain = async (domain: string) => {
+  const publications = await fetchPublications({
+    customConstraints: [
+      {
+        key: "domain",
+        constraint_type: "equals",
+        value: domain,
+      },
+    ],
+  });
+
+  return publications;
+};
+
 // Helper functions to parse the publication data from the API to the format we need for the Card components
 export const parsePublication = (publication: PublicationFromAPI) => {
-  // const isCustomDomain = publication.domain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
-
-  // const dev = process.env.NODE_ENV === "development";
-
   return {
     title: publication?.primaryTitle,
     description: publication?.about,
@@ -161,11 +171,7 @@ export const parsePublication = (publication: PublicationFromAPI) => {
 };
 
 // Helper functions to parse the story data from the API to the format we need for the Card components
-export const parseStory = (story: StoryFromAPI, publicationSlug: string, publicationDomain: string) => {
-  //const isCustomDomain = publicationDomain !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
-
-  //const dev = process.env.NODE_ENV === "development";
-
+export const parseStory = (story: StoryFromAPI, publicationSlug: string) => {
   return {
     title: story?.titlePrimary,
     description: story?.description,
@@ -175,9 +181,9 @@ export const parseStory = (story: StoryFromAPI, publicationSlug: string, publica
 };
 
 // Get all stories paths, used for the sitemap.xml and generating the static pages
-export const getStoriesPaths = async () => {
+export const getStoriesPaths = async (domain?: string) => {
   const stories = await fetchStories();
-  const publications = await fetchPublications();
+  const publications = domain ? await fetchPublicationsByDomain(domain) : await fetchPublications();
 
   let paths = [] as { publication: string; story: string; domain: string }[];
 
@@ -196,18 +202,17 @@ export const getStoriesPaths = async () => {
 };
 
 // Get all publications paths, used for the sitemap.xml and generating the static pages
-export const getPublicationsPaths = async () => {
-  const publications = await fetchPublications();
-  const domains = await getDomainPaths();
+export const getPublicationsPaths = async (domain?: string) => {
+  const publications = domain ? await fetchPublicationsByDomain(domain) : await fetchPublications();
+
+  console.log("Publications fetched: ", publications.length, domain);
 
   let paths = [] as { publication: string; domain: string }[];
 
-  domains.forEach((domain) => {
-    publications.forEach((publication) => {
-      paths.push({
-        domain: domain.domain,
-        publication: publication.Slug,
-      });
+  publications.forEach((publication) => {
+    paths.push({
+      domain: publication.domain,
+      publication: publication.Slug,
     });
   });
 

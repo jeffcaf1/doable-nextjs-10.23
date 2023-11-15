@@ -1,7 +1,7 @@
 import Layout from "@/lib/Layouts/PublicationsLayout";
-import { fetchPublications, parsePublication } from "../../utils";
+import { fetchPublications, fetchPublicationsByDomain, parsePublication } from "../../utils";
 
-export default async function Publications() {
+export default async function Publications({ params }: { params: { domain: string } }) {
   const featuredPublications = await fetchPublications({
     customConstraints: [
       {
@@ -9,10 +9,15 @@ export default async function Publications() {
         constraint_type: "equals",
         value: "true",
       },
+      {
+        key: "domain",
+        constraint_type: "equals",
+        value: params.domain,
+      },
     ],
   });
 
-  const allPublications = await fetchPublications();
+  const allPublications = await fetchPublicationsByDomain(params.domain);
 
   return (
     <main className="page-main">
