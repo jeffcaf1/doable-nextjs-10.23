@@ -5,7 +5,7 @@ export type PublicationFromAPI = {
   "Modified Date": string;
   approved: boolean;
   draft: boolean;
-  isPublication: boolean;
+  isSectionUnderPub: boolean;
   allStories?: string[];
   primaryTitle: string;
   secondaryTitle: string;

@@ -21,6 +21,11 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
       value: false,
     },
     {
+      key: "isSectionUnderPub",
+      constraint_type: "equals",
+      value: false,
+    },
+    {
       key: "privateclient",
       constraint_type: "equals",
       value: false,
