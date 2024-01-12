@@ -26,6 +26,7 @@ const Header = ({ title, pubChildSectionTagAsText, description, publicationName,
           )}   
                  {!customTitleComponent && <h1 className="article-header-title">{title}</h1>}
           {customTitleComponent && customTitleComponent}
+          {description && <p className="article-header-description">{description}</p>}
         </div>
       </div>
     </header>

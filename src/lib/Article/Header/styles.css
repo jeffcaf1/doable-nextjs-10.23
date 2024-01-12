@@ -24,6 +24,13 @@
   color: var(--text-title-primary);
 }
 
+.article-header-description {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--text-title-accent);
+  font-weight: 300;
+}
+
 .article-header-publication-name {
   color: var(--border);
   font-size: 1.3rem;
