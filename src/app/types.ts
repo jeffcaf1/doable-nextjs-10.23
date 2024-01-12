@@ -35,6 +35,7 @@ export type StoryFromAPI = {
   featuredPplAndCosProfiles?: string[];
   parentPublication: string;
   parentPublicationTitle: string;
+  pubChildSectionTagAsText: string;
 };
 
 export type Constraint = {

@@ -21,12 +21,12 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
       value: false,
     },
     {
-      key: "privateclient",
+      key: "privateClient",
       constraint_type: "equals",
       value: false,
     },
     {
-      key: "allstories",
+      key: "allStories",
       constraint_type: "not empty",
     },
     ...customConstraints,

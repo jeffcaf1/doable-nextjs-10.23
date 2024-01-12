@@ -96,7 +96,9 @@ const Footer = () => {
         </div>
         <div className="footer-inner-bottom">
           <span className="footer-legal">© 2023 Inspo Digital, Inc. All rights reserved.</span>
+          <a href="/">
           <img src="/images/logo.svg" alt="Doable Logo" className="footer-logo" />
+          </a>
         </div>
       </div>
     </footer>

@@ -13,7 +13,7 @@ const Template0 = async ({ story, sections }: { story: StoryFromAPI; sections: C
   return (
     <>
       <article className="article template-0">
-        <Header title={story?.titlePrimary} description={story?.description} publicationName={story?.parentPublicationTitle} />
+        <Header pubChildSectionTagAsText={story?.pubChildSectionTagAsText} title={story?.titlePrimary} publicationName={story?.parentPublicationTitle} />
 
         <section className="article-content">
           <div className="article-content-header">
