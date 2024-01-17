@@ -5,7 +5,7 @@ import Footer from "@/lib/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Doable",
-  description: "Conversations over content",
+  description: "News and Thought Leadership",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

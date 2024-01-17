@@ -23,11 +23,14 @@ export type StoryFromAPI = {
   approved: boolean;
   draft: boolean;
   titlePrimary: string;
-  titleSecondary: string;
   description: string;
   authorProfile: string;
+  authorName: string;
+  authorIsPersonOrOrganization: string;
+  authorProfileSlug: string;
   heroImageUrl: string;
   heroImageCaption: string;
+  heroImageAltText: string;
   innerHtmlIntroGraf: string;
   innerHtmlKeyPoints: string;
   innerHtmlBody: string;
@@ -36,6 +39,22 @@ export type StoryFromAPI = {
   parentPublication: string;
   parentPublicationTitle: string;
   pubChildSectionTagAsText: string;
+};
+
+export type ProfileFromAPI = {
+  Slug: string;
+  _id: string;
+  "Created Date": string;
+  "Modified Date": string;
+  draft: boolean;
+  name: string;
+  about: string;
+  imageUrl: string;
+  titleAndCompany: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  website: string;
+  featuredStories?: string[];
 };
 
 export type Constraint = {
