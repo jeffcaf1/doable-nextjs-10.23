@@ -18,7 +18,10 @@ export default async function middleware(req: NextRequest) {
   const url = req.nextUrl;
 
   // Get hostname of request (e.g. demo.vercel.pub, demo.localhost:3000)
-  const hostname = req.headers.get("host")!.replace(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`, `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`);
+  const hostname = req.headers
+    .get("host")!
+    .replace(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`, `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`)!
+    .replace(`www.alldoable.com`, `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`)!;
 
   const searchParams = req.nextUrl.searchParams.toString();
 
