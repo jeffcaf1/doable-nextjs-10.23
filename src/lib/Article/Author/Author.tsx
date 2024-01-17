@@ -18,7 +18,7 @@ const Author = ({ author, timeStamp, authorSlug }: { author: string; timeStamp: 
     <div className="author-container">
       <div className="author-name-container">
         by{" "}
-        <a className="author-name" href={`/contributor/${authorSlug}`}>
+        <a className="author-name" href={`/thought-leader/${authorSlug}`}>
           {author}
         </a>{" "}
       </div>
