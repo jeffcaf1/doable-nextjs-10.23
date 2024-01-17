@@ -8,16 +8,17 @@ import Intro from "../../Article/Intro/Intro";
 import Keypoints from "../../Article/Keypoints/Keypoints";
 import "./styles.css";
 import { CardListProps } from "./types";
+import Author from "@/lib/Article/Author/Author";
 
 const Template0 = async ({ story, sections }: { story: StoryFromAPI; sections: CardListProps[] }) => {
   return (
     <>
       <article className="article template-0">
         <Header pubChildSectionTagAsText={story?.pubChildSectionTagAsText} title={story?.titlePrimary} publicationName={story?.parentPublicationTitle} />
-
         <section className="article-content">
+          <Author author={story?.authorName} authorSlug={story?.authorProfileSlug} timeStamp={story?.["Created Date"]} />
           <div className="article-content-header">
-            <CoverImage src={story?.heroImageUrl} caption={story?.heroImageCaption} />
+            <CoverImage src={story?.heroImageUrl} caption={story?.heroImageCaption || ""} />
             {story?.innerHtmlKeyPoints && <Keypoints html={story.innerHtmlKeyPoints} />}
           </div>
           {story?.innerHtmlIntroGraf && <Intro html={story.innerHtmlIntroGraf} />}

@@ -10,7 +10,7 @@ const CoverImage = ({ src, caption }: CoverImageProps) => {
   return (
     <figure className="article-cover-image">
       <img src={src} alt={caption} />
-      {/* <figcaption>Qstn Placeholder</figcaption> */}
+      <figcaption>{caption}</figcaption>
     </figure>
   );
 };

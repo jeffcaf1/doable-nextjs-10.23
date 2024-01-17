@@ -1,0 +1,22 @@
+.author-container {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  justify-content: flex-start;
+  margin-top: -1.5rem;
+}
+
+.author-container .author-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .author-container {
+    margin-top: -4rem;
+    margin-bottom: 0.25rem;
+    margin-left: 0.625rem;
+    color: var(--text-title-accent);
+  }
+}

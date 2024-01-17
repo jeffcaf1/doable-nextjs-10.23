@@ -1,4 +1,4 @@
-import { Constraint, PublicationFromAPI, StoryFromAPI } from "./types";
+import { Constraint, ProfileFromAPI, PublicationFromAPI, StoryFromAPI } from "./types";
 
 const API_ENDPOINT = process.env.API_ENDPOINT;
 const API_TOKEN = process.env.API_TOKEN;
@@ -144,6 +144,33 @@ export const fetchStory = async (slug: string) => {
   //console.log("Story fetched: ", story?._id);
 
   return story;
+};
+
+export const fetchAuthor = async (slug: string) => {
+  const API_ENDPOINT_AUTHORS = API_ENDPOINT + "/obj/profile";
+
+  const getApiEndpointForAuthors = (author: string) => {
+    const url = `${API_ENDPOINT_AUTHORS}?constraints=[{"key": "Slug", "constraint_type": "equals", "value": "${author}"},{"key": "draft", "constraint_type": "equals", "value": "false"}]`;
+    return encodeURI(url);
+  };
+
+  let author = {} as ProfileFromAPI;
+
+  const { response } = await fetch(getApiEndpointForAuthors(slug), { next: { tags: ["profile"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err);
+      return [err];
+    });
+
+  const results = response.results as any[];
+
+  author = results[0] as ProfileFromAPI;
+
+  //console.log("Author fetched: ", author?._id);
+
+  return author;
 };
 
 export const fetchPublicationsByDomain = async (domain: string) => {
