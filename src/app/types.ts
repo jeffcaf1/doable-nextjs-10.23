@@ -11,6 +11,8 @@ export type PublicationFromAPI = {
   secondaryTitle: string;
   about: string;
   heroImageUrl: string;
+  heroImageAltText: string;
+  heroImageCaption: string;
   relatedPublications?: string[];
   domain: string;
 };
