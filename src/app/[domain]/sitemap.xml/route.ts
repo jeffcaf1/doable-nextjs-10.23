@@ -1,8 +1,13 @@
 import { NextRequest } from "next/server";
-import { getPublicationsPaths, getStoriesPaths } from "../../utils";
+import { getAuthorPaths, getPublicationsPaths, getStoriesPaths } from "../../utils";
 import { NextApiRequest } from "next";
 
-function generateSiteMap(host: string, publications: { publication: string }[], stories: { publication: string; story: string }[]) {
+function generateSiteMap(
+  host: string,
+  publications: { publication: string }[],
+  stories: { publication: string; story: string }[],
+  authors: { contributor: string }[]
+) {
   const root = `https://` + host;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -35,6 +40,16 @@ function generateSiteMap(host: string, publications: { publication: string }[], 
             `;
           })
           .join("")}
+        ${authors
+          .map(({ contributor }) => {
+            return `
+                <url>
+                    <loc>${root}/thought-leader/${contributor}</loc>
+                    <lastmod>${new Date().toISOString()}</lastmod>
+                </url>
+            `;
+          })
+          .join("")}
    </urlset>
  `;
 }
@@ -42,7 +57,7 @@ function generateSiteMap(host: string, publications: { publication: string }[], 
 export async function GET(request: NextRequest, { params: { domain } }: { params: { domain: string } }) {
   // We generate the XML sitemap with the stories and publications data
 
-  const sitemap = generateSiteMap(domain, await getPublicationsPaths(domain), await getStoriesPaths(domain));
+  const sitemap = generateSiteMap(domain, await getPublicationsPaths(domain), await getStoriesPaths(domain), await getAuthorPaths(domain));
 
   return new Response(sitemap, {
     headers: {

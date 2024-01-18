@@ -19,12 +19,28 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: { story: string; publication: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { story: string; publication: string; domain: string } }): Promise<Metadata> {
   const story = await fetchStory(params.story);
 
   return {
     title: story?.titlePrimary || "",
     description: story?.description || "",
+    openGraph: {
+      title: story?.titlePrimary || "",
+      description: story?.description || "",
+      type: "article",
+      url: `https://${params.domain}/${params.publication}/${params.story}`,
+      images: [
+        {
+          url: story?.heroImageUrl || "",
+          alt: story?.heroImageAltText || "",
+        },
+      ],
+      siteName: "Doable",
+      publishedTime: story?.["Created Date"] || "",
+      modifiedTime: story?.["Modified Date"] || "",
+      locale: "en_US",
+    },
   };
 }
 
@@ -52,18 +68,38 @@ export default async function Story({ params }: { params: { story: string; publi
     )
   );
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: story?.titlePrimary || "",
+    image: [story?.heroImageUrl || ""],
+    isAccessibleForFree: true,
+    datePublished: story?.["Created Date"] || "",
+    dateModified: story?.["Modified Date"] || "",
+    author: [
+      {
+        "@type": story.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
+        name: story?.authorName || "",
+        url: `https://${params.domain}/thought-leader/${story?.authorProfileSlug || ""}`,
+      },
+    ],
+  };
+
   return (
-    <main className="article-main">
-      <Template0
-        story={story}
-        sections={[
-          {
-            title: "Related Stories",
-            articles: relatedArticles.map((article) => parseStory(article, params.publication)),
-            variant: "small",
-          },
-        ]}
-      />
-    </main>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ jsonLd }) }} />
+      <main className="article-main">
+        <Template0
+          story={story}
+          sections={[
+            {
+              title: "Related Stories",
+              articles: relatedArticles.map((article) => parseStory(article, params.publication)),
+              variant: "small",
+            },
+          ]}
+        />
+      </main>
+    </>
   );
 }

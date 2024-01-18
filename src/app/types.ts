@@ -58,6 +58,7 @@ export type ProfileFromAPI = {
   twitterUrl: string;
   website: string;
   featuredStories?: string[];
+  authorIsPersonOrOrganization: string;
 };
 
 export type Constraint = {

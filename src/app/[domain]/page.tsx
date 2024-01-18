@@ -1,8 +1,43 @@
 import Layout from "@/lib/Layouts/HomepageLayout";
 import { fetchPublications, fetchStories, getDomainPaths, getPublicationsPaths, getStoriesPaths, parsePublication, parseStory } from "../utils";
+import exp from "constants";
 
 export async function generateStaticParams() {
   return getDomainPaths();
+}
+
+export async function generateMetadata({ params }: { params: { domain: string } }) {
+  // Get the publication for the domain
+  const publications = (
+    await fetchPublications({
+      customConstraints: [
+        {
+          key: "domain",
+          constraint_type: "equals",
+          value: params.domain,
+        },
+      ],
+    })
+  )[0];
+
+  return {
+    title: publications?.primaryTitle || "",
+    description: publications?.about || "",
+    openGraph: {
+      title: publications?.primaryTitle || "",
+      description: publications?.about || "",
+      type: "website",
+      url: `https://${params.domain}`,
+      images: [
+        {
+          url: publications?.heroImageUrl || "",
+          alt: publications?.heroImageAltText || "",
+        },
+      ],
+      siteName: "Doable",
+      locale: "en_US",
+    },
+  };
 }
 
 export default async function Home({ params: { domain } }: { params: { domain: string } }) {

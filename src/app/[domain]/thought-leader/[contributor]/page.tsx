@@ -1,4 +1,4 @@
-import { fetchAuthor, fetchPublications, fetchStories, fetchStory, getStoriesPaths, parseStory } from "@/app/utils";
+import { fetchAuthor, fetchPublications, fetchStories, fetchStory, getAuthorPaths, getStoriesPaths, parseStory } from "@/app/utils";
 import Layout from "@/lib/Layouts/AuthorLayout";
 import { Metadata } from "next";
 
@@ -15,16 +15,32 @@ export const dynamicParams = true;
 */
 // export const generateStaticParams = getStoriesPaths();
 export async function generateStaticParams() {
-  return getStoriesPaths();
+  return getAuthorPaths();
 }
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: { story: string; publication: string } }): Promise<Metadata> {
-  const story = await fetchStory(params.story);
+export async function generateMetadata({ params }: { params: { contributor: string; domain: string } }): Promise<Metadata> {
+  const author = await fetchAuthor(params.contributor);
 
   return {
-    title: story?.titlePrimary || "",
-    description: story?.description || "",
+    title: author?.name || "Doable",
+    openGraph: {
+      title: author?.name || "Doable",
+      type: "profile",
+      url: `https://${params.domain}/thought-leader/${params.contributor}`,
+      images: [
+        {
+          url: author?.imageUrl || "",
+          alt: author?.name || "",
+        },
+      ],
+      description: author?.about || "",
+      username: author?.Slug || "",
+      siteName: "Doable",
+      firstName: author?.name?.split(" ")[0] || "",
+      lastName: author?.name?.split(" ")[1] || "",
+      locale: "en_US",
+    },
   };
 }
 
@@ -86,28 +102,45 @@ export default async function Contributor({ params }: { params: { contributor: s
     })
   );
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    description: author?.about || "",
+    image: author.imageUrl,
+    dateCreated: author?.["Created Date"] || "",
+    dateModified: author?.["Modified Date"] || "",
+    mainEntity: {
+      "@type": author?.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
+      name: author?.name || "Doable",
+      alternateName: author?.Slug,
+    },
+  };
+
   return (
-    <main className="author-main">
-      <Layout
-        sections={[
-          {
-            title: "Featured Stories",
-            articles: featuredArticlesWithParentPublication.slice(0, 3).map((story) => parseStory(story, story?.parentPublicationSlug || "")),
-            variant: "large",
-          },
-          {
-            title: "Stories",
-            articles: storiesWithParentPublication.map((story) => parseStory(story, story?.parentPublicationSlug || "")),
-            variant: "small",
-          },
-        ]}
-        title={author?.name}
-        description={author?.about}
-        titleAndCompany={author?.titleAndCompany}
-        linkedInUrl={author?.linkedInUrl}
-        twitterUrl={author?.twitterUrl}
-        websiteUrl={author?.website}
-      />
-    </main>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ jsonLd }) }} />
+      <main className="author-main">
+        <Layout
+          sections={[
+            {
+              title: "Featured Stories",
+              articles: featuredArticlesWithParentPublication.slice(0, 3).map((story) => parseStory(story, story?.parentPublicationSlug || "")),
+              variant: "large",
+            },
+            {
+              title: "Stories",
+              articles: storiesWithParentPublication.map((story) => parseStory(story, story?.parentPublicationSlug || "")),
+              variant: "small",
+            },
+          ]}
+          title={author?.name}
+          description={author?.about}
+          titleAndCompany={author?.titleAndCompany}
+          linkedInUrl={author?.linkedInUrl}
+          twitterUrl={author?.twitterUrl}
+          websiteUrl={author?.website}
+        />
+      </main>
+    </>
   );
 }

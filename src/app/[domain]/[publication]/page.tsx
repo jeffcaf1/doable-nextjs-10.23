@@ -42,6 +42,20 @@ export async function generateMetadata({ params }: { params: { publication: stri
   return {
     title: currentPublication?.primaryTitle || "",
     description: currentPublication?.about || "",
+    openGraph: {
+      title: currentPublication?.primaryTitle || "",
+      description: currentPublication?.about || "",
+      type: "website",
+      url: `https://${params.domain}/${params.publication}`,
+      images: [
+        {
+          url: currentPublication?.heroImageUrl || "",
+          alt: currentPublication?.heroImageAltText || "",
+        },
+      ],
+      siteName: "Doable",
+      locale: "en_US",
+    },
   };
 }
 

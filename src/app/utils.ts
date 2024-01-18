@@ -173,6 +173,45 @@ export const fetchAuthor = async (slug: string) => {
   return author;
 };
 
+export const fetchAuthors = async () => {
+  const API_ENDPOINT_AUTHORS = API_ENDPOINT + "/obj/profile?cursor=";
+
+  const constraints = [
+    {
+      key: "draft",
+      constraint_type: "equals",
+      value: false,
+    },
+  ];
+
+  const getApiEndpointForAuthors = (start = 0) => {
+    const url = `${API_ENDPOINT_AUTHORS}${start}/&constraints=${JSON.stringify(constraints)}`;
+    return encodeURI(url);
+  };
+
+  let authors = [] as ProfileFromAPI[];
+
+  const { response } = await fetch(getApiEndpointForAuthors(), { next: { tags: ["profile"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err);
+      return [err];
+    });
+
+  const results = response.results as any[];
+
+  authors.push(...results);
+
+  if (response.remaining > 0) {
+    authors.push(...(await fetchAuthors()));
+  }
+
+  //console.log("Authors fetched: ", authors.length);
+
+  return authors;
+};
+
 export const fetchPublicationsByDomain = async (domain: string) => {
   const publications = await fetchPublications({
     customConstraints: [
@@ -207,20 +246,40 @@ export const parseStory = (story: StoryFromAPI, publicationSlug: string) => {
   };
 };
 
+// Find all domains
+export const fetchDomains = async () => {
+  const publications = await fetchPublications();
+
+  let domains = [] as string[];
+
+  publications.forEach((publication) => {
+    // If the domain is already in the array, skip it
+    if (domains.includes(publication.domain)) return;
+
+    domains.push(publication.domain);
+  });
+
+  return domains;
+};
+
 // Get all stories paths, used for the sitemap.xml and generating the static pages
 export const getStoriesPaths = async (domain?: string) => {
   const stories = await fetchStories();
-  const publications = domain ? await fetchPublicationsByDomain(domain) : await fetchPublications();
+  const publications = await fetchPublications();
+  const domains = domain ? [domain] : await fetchDomains();
 
   let paths = [] as { publication: string; story: string; domain: string }[];
 
-  publications.forEach((publication) => {
-    const storiesForPublication = stories.filter((story) => publication?.allStories?.includes(story._id));
-    return storiesForPublication.forEach((story) => {
-      paths.push({
-        domain: publication.domain,
-        publication: publication.Slug,
-        story: story.Slug,
+  // Loop through all domains, publications and stories to generate the paths
+  domains.forEach((domain) => {
+    publications.forEach((publication) => {
+      const storiesForPublication = stories.filter((story) => publication?.allStories?.includes(story._id));
+      return storiesForPublication.forEach((story) => {
+        paths.push({
+          domain: domain,
+          publication: publication.Slug,
+          story: story.Slug,
+        });
       });
     });
   });
@@ -230,16 +289,18 @@ export const getStoriesPaths = async (domain?: string) => {
 
 // Get all publications paths, used for the sitemap.xml and generating the static pages
 export const getPublicationsPaths = async (domain?: string) => {
-  const publications = domain ? await fetchPublicationsByDomain(domain) : await fetchPublications();
-
-  console.log("Publications fetched: ", publications.length, domain);
+  const publications = await fetchPublications();
+  const domains = domain ? [domain] : await fetchDomains();
 
   let paths = [] as { publication: string; domain: string }[];
 
-  publications.forEach((publication) => {
-    paths.push({
-      domain: publication.domain,
-      publication: publication.Slug,
+  // Loop through all domains and publications to generate the paths
+  domains.forEach((domain) => {
+    publications.forEach((publication) => {
+      paths.push({
+        domain: domain,
+        publication: publication.Slug,
+      });
     });
   });
 
@@ -258,6 +319,25 @@ export const getDomainPaths = async () => {
 
     paths.push({
       domain: publication.domain,
+    });
+  });
+
+  return paths;
+};
+
+// Get all author paths, used for the sitemap.xml and generating the static pages
+export const getAuthorPaths = async (domain?: string) => {
+  const authors = await fetchAuthors();
+  const domains = domain ? [domain] : await fetchDomains();
+
+  let paths = [] as { contributor: string; domain: string }[];
+
+  domains.forEach((domain) => {
+    authors.forEach((author) => {
+      paths.push({
+        domain: domain,
+        contributor: author.Slug,
+      });
     });
   });
 
