@@ -24,15 +24,34 @@ export default async function Home({ params: { domain } }: { params: { domain: s
     ],
   });
 
- const featuredStories = await fetchStories({
-   customConstraints: [
+  const featuredStories = await fetchStories({
+    customConstraints: [
       {
-         key: "featuredOnHomepage",
-         constraint_type: "equals",
+        key: "featuredOnHomepage",
+        constraint_type: "equals",
         value: "true",
-     },
-   ],
+      },
+    ],
   });
+
+  const featuredStoriesWithParentPublication = await Promise.all(
+    featuredStories.map(async (story) => {
+      const publication = await fetchPublications({
+        customConstraints: [
+          {
+            key: "_id",
+            constraint_type: "equals",
+            value: story.parentPublication,
+          },
+        ],
+      });
+
+      return {
+        ...story,
+        publication: publication[0],
+      };
+    })
+  );
 
   return (
     <main className="homepage-main">
@@ -45,7 +64,7 @@ export default async function Home({ params: { domain } }: { params: { domain: s
           },
           {
             title: "Featured Stories",
-            articles: featuredStories.map(parseStory),
+            articles: featuredStoriesWithParentPublication.map((story) => parseStory(story, story?.publication?.Slug || "")),
             variant: "small",
           },
         ]}
