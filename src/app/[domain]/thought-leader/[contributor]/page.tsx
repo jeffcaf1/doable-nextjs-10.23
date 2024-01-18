@@ -123,11 +123,6 @@ export default async function Contributor({ params }: { params: { contributor: s
         <Layout
           sections={[
             {
-              title: "Featured Stories",
-              articles: featuredArticlesWithParentPublication.slice(0, 3).map((story) => parseStory(story, story?.parentPublicationSlug || "")),
-              variant: "large",
-            },
-            {
               title: "Stories",
               articles: storiesWithParentPublication.map((story) => parseStory(story, story?.parentPublicationSlug || "")),
               variant: "small",
