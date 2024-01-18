@@ -1,5 +1,4 @@
 import Layout from "@/lib/Layouts/HomepageLayout";
-import PublicationLayout from "@/lib/Layouts/PublicationLayout";
 import { fetchPublications, fetchStories, getDomainPaths, getPublicationsPaths, getStoriesPaths, parsePublication, parseStory } from "../utils";
 
 export async function generateStaticParams() {
@@ -25,29 +24,15 @@ export default async function Home({ params: { domain } }: { params: { domain: s
     ],
   });
 
-  /* Hardcode featured stories for now */
-
-  const featuredStories = [
-    {
-      title: "Tesla wins fatal Autopilot crash jury trial",
-      description:
-        "A jury on Tuesday handed Tesla another win after siding with the automaker over allegations that its Autopilot advanced driver assistance system led to a death. ",
-      link: "http://localhost:54321/service-at-scale/tesla-wins-autopilot-crash-jury-trial",
-      image: "https://techcrunch.com/wp-content/uploads/2023/05/GettyImages-1245135186.jpg?w=1390&crop=1",
-    },
-    // Add more stories here
-  ];
-
-  // Uncomment this to fetch stories from the API
-  // const featuredStories = await fetchStories({
-  //   customConstraints: [
-  //     {
-  //       key: "isFeaturedTop3",
-  //       constraint_type: "equals",
-  //       value: "true",
-  //     },
-  //   ],
-  // });
+ const featuredStories = await fetchStories({
+   customConstraints: [
+      {
+         key: "featuredOnHomepage",
+         constraint_type: "equals",
+        value: "true",
+     },
+   ],
+  });
 
   return (
     <main className="homepage-main">
@@ -60,7 +45,7 @@ export default async function Home({ params: { domain } }: { params: { domain: s
           },
           {
             title: "Featured Stories",
-            articles: featuredStories,
+            articles: featuredStories.map(parseStory),
             variant: "small",
           },
         ]}

@@ -36,6 +36,7 @@ export type StoryFromAPI = {
   innerHtmlIntroGraf: string;
   innerHtmlKeyPoints: string;
   innerHtmlBody: string;
+  featuredOnHomepage: boolean;
   relatedStories?: string[];
   featuredPplAndCosProfiles?: string[];
   parentPublication: string;
