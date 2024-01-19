@@ -1,14 +1,12 @@
+"use client";
+
 import React from "react";
 import "./styles.css";
 import { CardProps } from "../ArticleLayouts/Template-0/types";
 
-const Card = ({
-  variant = "small",
-  link = "/",
-  image = "",
-  title = "",
-  description = "",
-}: CardProps) => {
+const Card = ({ variant = "small", link = "/", image = "", title = "", description = "" }: CardProps) => {
+  console.log("CardProps", image, title, description);
+
   return (
     <a href={link} className={`card card-${variant}`}>
       <img src={image} alt={title} className="card-image" />
