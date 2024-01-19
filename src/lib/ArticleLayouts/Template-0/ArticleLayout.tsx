@@ -18,7 +18,7 @@ const Template0 = async ({ story, sections }: { story: StoryFromAPI; sections: C
         <section className="article-content">
           <Author author={story?.authorName} authorSlug={story?.authorProfileSlug} timeStamp={story?.["Created Date"]} />
           <div className="article-content-header">
-            <CoverImage src={story?.heroImageUrl} caption={story?.heroImageCaption || ""} />
+            <CoverImage src={story?.heroImageUrl} alt={story?.heroImageAltText} caption={story?.heroImageCaption || ""} />
             {story?.innerHtmlKeyPoints && <Keypoints html={story.innerHtmlKeyPoints} />}
           </div>
           {story?.innerHtmlIntroGraf && <Intro html={story.innerHtmlIntroGraf} />}
