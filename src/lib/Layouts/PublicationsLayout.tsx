@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "./styles.css";
 import Header from "../Article/Header/Header";
@@ -9,13 +11,17 @@ type PublicationsLayoutProps = {
   title?: string;
   description?: string;
   sections: CardListProps[];
+  raw: any;
 };
 
 const Layout = ({
   title = "Our Publications",
   description = "Sub-heading for the all publications page describing what everything is",
   sections = [],
+  raw,
 }: PublicationsLayoutProps) => {
+  console.log("PublicationsLayout.tsx: Layout: sections:", sections);
+
   return (
     <section className="publications">
       <Header title="Our Publications" description="Sub-heading for the all publications page describing what everything is" />
