@@ -12,7 +12,7 @@ export default async function Publications({ params }: { params: { domain: strin
       {
         key: "domain",
         constraint_type: "equals",
-        value: params.domain,
+        value: "alldoable.com",
       },
     ],
   });
