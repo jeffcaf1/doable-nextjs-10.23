@@ -12,7 +12,7 @@ export default async function Publications({ params }: { params: { domain: strin
       {
         key: "domain",
         constraint_type: "equals",
-        value: "alldoable.com",
+        value: params.domain,
       },
     ],
   });
@@ -34,7 +34,6 @@ export default async function Publications({ params }: { params: { domain: strin
             variant: "small",
           },
         ]}
-        data={featuredPublications}
       />
     </main>
   );
