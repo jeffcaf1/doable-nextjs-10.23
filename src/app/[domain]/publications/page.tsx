@@ -26,7 +26,6 @@ export default async function Publications({ params }: { params: { domain: strin
           {
             title: "Featured Publications",
             articles: featuredPublications.map(parsePublication),
-            raw: featuredPublications,
             variant: "small",
           },
           {
@@ -35,6 +34,7 @@ export default async function Publications({ params }: { params: { domain: strin
             variant: "small",
           },
         ]}
+        data={featuredPublications}
       />
     </main>
   );

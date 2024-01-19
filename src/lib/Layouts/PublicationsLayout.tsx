@@ -11,16 +11,16 @@ type PublicationsLayoutProps = {
   title?: string;
   description?: string;
   sections: CardListProps[];
-  raw: any;
+  data: any;
 };
 
 const Layout = ({
   title = "Our Publications",
   description = "Sub-heading for the all publications page describing what everything is",
   sections = [],
-  raw,
+  data,
 }: PublicationsLayoutProps) => {
-  console.log("PublicationsLayout.tsx: Layout: sections:", sections);
+  console.log("PublicationsLayout.tsx: Layout: sections:", data);
 
   return (
     <section className="publications">
