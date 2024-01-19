@@ -41,11 +41,21 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .header-logo {
+    max-width: 28rem;
+  }
+}
+
+@media (max-width: 1120px) {
+  .header-logo {
+    max-width: 24rem;
+  }
+}
+
+@media (max-width: 1060px) {
   .header-logo > img {
     max-width: 22rem;
-    width: 100%;
-    height: auto;
   }
 
   .header-hamburger {
