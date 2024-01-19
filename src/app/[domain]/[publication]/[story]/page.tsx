@@ -58,7 +58,7 @@ export default async function Story({ params }: { params: { story: string; publi
   });
 
   if (currentPublication[0]?.domain !== params.domain) {
-    return <div>Story Not found</div>;
+    return <div>Story Not found </div>;
   }
 
   // Fetch the related stories
