@@ -44,8 +44,8 @@ const Header = () => {
             <div className="header-hamburger-inner"></div>
           </button>
 
-          <div className={`header-hamburger-menu-outer ${isMenuOpen ? "show" : ""}`}>
-            <div className="header-hamburger-menu-inner">
+          <div className={`header-hamburger-menu-outer ${isMenuOpen ? "show" : ""}`} onClick={() => setIsMenuOpen(false)}>
+            <div className="header-hamburger-menu-inner" onClick={(e) => e.stopPropagation()}>
               <ul>
                 <li>
                   <a href="/top" className="nav-link hover">
