@@ -10,7 +10,7 @@ async function generateSiteMap(host: string) {
     customConstraints: [
       {
         constraint_type: "greater than",
-        key: "Created Date",
+        key: "Modified Date",
         // Make sure the articles are not older than 2 days
         value: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
       },
