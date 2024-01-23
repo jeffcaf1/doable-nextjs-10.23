@@ -107,7 +107,7 @@ export default async function Publication({ params }: { params: { publication: s
           {
             title: "Featured Stories",
             articles: stories.slice(0, 3).map((story) => parseStory(story, currentPublication?.Slug || "")),
-            variant: "large",
+            variant: "small",
           },
           {
             title: "All Stories",

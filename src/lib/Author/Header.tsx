@@ -23,7 +23,7 @@ const Header = ({ title, description, titleAndCompany, twitterUrl, websiteUrl, l
           <ul className="author-header-social">
             {linkedInUrl && (
               <li>
-                <a href={linkedInUrl} className="hover">
+                <a href={linkedInUrl} className="hover" target="_blank" rel="noopener noreferrer">
                   <img src="/images/linkedin.png" alt="LinkedIn" className="author-header-social-icon" />
                 </a>
               </li>
@@ -31,7 +31,7 @@ const Header = ({ title, description, titleAndCompany, twitterUrl, websiteUrl, l
 
             {twitterUrl && (
               <li>
-                <a href={twitterUrl} className="hover">
+                <a href={twitterUrl} className="hover" target="_blank" rel="noopener noreferrer">
                   <img src="/images/twitter.png" alt="Twitter" className="author-header-social-icon" />
                 </a>
               </li>
@@ -39,12 +39,13 @@ const Header = ({ title, description, titleAndCompany, twitterUrl, websiteUrl, l
 
             {websiteUrl && (
               <li>
-                <a href={websiteUrl} className="hover author-header-social-website">
+                <a href={websiteUrl} className="hover author-header-social-website" target="_blank" rel="noopener noreferrer">
                   {websiteUrl?.replace("https://", "").replace("http://", "").replace("www.", "")}
                 </a>
               </li>
             )}
           </ul>
+
 
           <p className="author-header-description blockquote">{description}</p>
         </div>
