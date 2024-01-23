@@ -16,22 +16,12 @@ const Header = () => {
           <div className="header-nav-inner">
             <ul>
               <li>
-                <a href="/top" className="nav-link hover">
-                  Top Stories
-                </a>
-              </li>
-              <li>
                 <a href="/publications" className="nav-link hover">
                   Publications
                 </a>
               </li>
               <li>
-                <a href="/industries" className="nav-link hover">
-                  Industries
-                </a>
-              </li>
-              <li>
-                <a href="/signup" className="btn-primary">
+                <a href="/get-featured" className="btn-primary">
                   Get Featured
                 </a>
               </li>

@@ -12,13 +12,14 @@
 }
 
 .article-cover-image figcaption {
-  font-size: 0.875rem;
-  line-height: 1.4;
+  font-size: 0.75rem;
+  line-height: 1.2;
   margin-top: 0.625rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: #696969;
 }
 
 @media (max-width: 768px) {
