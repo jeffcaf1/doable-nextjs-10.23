@@ -35,12 +35,12 @@ const Footer = () => {
                   <h4 className="footer-nav-title">Legal</h4>
                 </li>
                 <li>
-                  <a href="/about" className="footer-link hover">
+                  <a href="/privacy" className="footer-link hover">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="footer-link hover">
+                  <a href="/terms" className="footer-link hover">
                     Terms
                   </a>
                 </li>
@@ -63,8 +63,8 @@ const Footer = () => {
 
           <div className="footer-inner-right">
             <div className="footer-inner-right-container">
-              <a href="/signup" className="btn-primary footer-cta">
-                Get Featured
+              <a href="/get-featured" className="btn-primary footer-cta">
+                GET FEATURED
               </a>
             </div>
           </div>

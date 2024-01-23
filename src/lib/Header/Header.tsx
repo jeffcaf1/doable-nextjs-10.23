@@ -44,7 +44,7 @@ const Header = () => {
                 </li>
                 <li>
                   <a href="/get-featured" className="btn-primary">
-                    Get Featured
+                  GET FEATURED
                   </a>
                 </li>
               </ul>

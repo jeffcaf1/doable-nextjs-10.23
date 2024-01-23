@@ -3,7 +3,7 @@ import "../../globals.css";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Conversations over Content",
+  description: "About Doable and its news publications",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
