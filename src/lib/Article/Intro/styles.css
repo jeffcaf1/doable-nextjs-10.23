@@ -1,12 +1,13 @@
 .intro-container {
-  width: 75%;
+  max-width: 48rem;
+  width: 100%;
 }
 
 .intro-container p {
   font-size: 1.25rem;
   line-height: 1.4;
   letter-spacing: 0.25px;
-  padding-top: 50px;
+  padding-top: 1rem;
 }
 
 .intro-container a {
@@ -25,10 +26,10 @@
 }
 
 .intro-container p:first-child::first-letter {
-  font-size: 5.75rem;
+  font-size: 4rem;
   line-height: 0.9;
   float: left;
-  margin-right: 0.625rem;
+  margin-right: 0.2rem;
   font-weight: 800;
 }
 

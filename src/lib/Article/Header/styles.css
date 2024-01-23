@@ -54,18 +54,27 @@
 
 @media (max-width: 768px) {
   .article-header-outer {
+    gap: 1rem;
     padding-bottom: 0.625rem;
   }
 
   .article-header-inner-wrapper {
     width: 100%;
-    padding: 3.125rem 0.625rem;
+    padding-top: 1.5rem;
+    padding-left: 0.625rem;
   }
 
   .article-header-title {
     font-size: 2rem;
   }
 
+  .article-header-publication-name {
+    font-size: 1rem;
+  }
+
+  .article-header-child-section-name {
+    font-size: 1.5rem;
+  }
   .article-header-description {
     width: 100%;
     margin-left: 0;

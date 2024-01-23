@@ -55,7 +55,8 @@
 @media (max-width: 768px) {
   .card {
     flex-direction: column;
-    gap: 1.25rem;
+    gap: .8rem;
+    margin-top: .5rem;
   }
 
   .card-image {
@@ -72,8 +73,8 @@
     font-size: 1.125rem;
   }
 
-  .card-large .card-title {
-    font-size: 1.25rem;
+  .card-small .card-title {
+    font-size: 1rem;
   }
 
   .card-large .card-description {

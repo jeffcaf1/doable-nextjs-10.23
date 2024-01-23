@@ -14,9 +14,9 @@
 
 @media (max-width: 768px) {
   .author-container {
-    margin-top: -4rem;
-    margin-bottom: 0.25rem;
+    margin-top: .6rem;
+    margin-bottom: 1rem;
     margin-left: 0.625rem;
-    color: var(--text-title-accent);
+    color: black;
   }
 }
