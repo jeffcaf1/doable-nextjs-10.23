@@ -77,7 +77,8 @@ export default async function Publication({ params }: { params: { publication: s
   }).then((res) => res[0]);
 
   if (!currentPublication) {
-    return <h1>Publication not found</h1>;
+    // Show 404 page
+    throw new Error("404");
   }
 
   // Fetch all stories for the current publication
