@@ -1,6 +1,7 @@
 import { fetchPublications, fetchStories, fetchStory, getStoriesPaths, parseStory } from "@/app/utils";
 import Template0 from "@/lib/ArticleLayouts/Template-0/ArticleLayout";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 /**
  * Because static paths are not revalidated, we need to set this to true.
@@ -58,7 +59,7 @@ export default async function Story({ params }: { params: { story: string; publi
   });
 
   if (currentPublication[0]?.domain !== params.domain) {
-    throw new Error("Story not found");
+    return notFound();
   }
 
   // Fetch the related stories

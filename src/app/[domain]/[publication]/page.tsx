@@ -3,6 +3,7 @@ import Layout from "@/lib/Layouts/PublicationLayout";
 import { Metadata } from "next";
 import { headers } from "next/headers";
 import { fetchPublications, fetchStories, getPublicationsPaths, parsePublication, parseStory } from "../../utils";
+import { notFound } from "next/navigation";
 
 /**
  * Because static paths are not revalidated, we need to set this to true.
@@ -78,7 +79,7 @@ export default async function Publication({ params }: { params: { publication: s
 
   if (!currentPublication) {
     // Show 404 page
-    throw new Error("404");
+    notFound();
   }
 
   // Fetch all stories for the current publication
