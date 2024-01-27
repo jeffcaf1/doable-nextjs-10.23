@@ -7,14 +7,16 @@ export default function GetFeatured() {
         <header>
           <div className="inner page-header-inner">
             <div className="page-header-inner-wrapper">
-              <h1 className="page-header-title">Get Featured</h1>
+              <h1 className="page-header-title">Want to fet featured in a Doable news story? Here's how...</h1>
             </div>
           </div>
         </header>
       </section>
       <section className="page-body-outer">
           <div className="inner">
-              <p>This is the text in the header of the get featured page.</p>
+          <div className="page-inner">
+              <p>Doable is always on the hunt for unique perspectives from B2B thought leaders who are experts in their fields. We want to hear from you!</p>
+          </div>
           </div>
       </section>
     </main>

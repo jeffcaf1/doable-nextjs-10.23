@@ -1,3 +1,6 @@
+.page-inner {
+  max-width: 80%;
+}
 .page-header-outer {
     background: var(--bg-primary);
     padding-bottom: 2.5rem;

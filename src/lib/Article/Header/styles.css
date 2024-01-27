@@ -38,7 +38,7 @@
   font-size: 1.1875rem;
   line-height: 1.4;
   color: var(--text-title-accent);
-  max-width: 90%;
+  max-width: 80%;
   font-weight: 300;
   border-left: 3px solid var(--border);
   padding-left: 0.625rem;
@@ -77,8 +77,12 @@
     padding-left: 0.625rem;
   }
 
+  .homepage-title {
+    font-size: 3rem;
+  }
+
   .article-header-title {
-    font-size: 1.8rem;
+    font-size: 3rem;
   }
 
   .article-header-publication-name {
