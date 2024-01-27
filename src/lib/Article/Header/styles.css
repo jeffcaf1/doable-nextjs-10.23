@@ -18,6 +18,15 @@
   padding-left: 0.625rem;
 }
 
+.homepage-title
+{
+  font-size: 5rem;
+  max-width: 90%;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--text-title-primary);
+}
+
 .article-header-title {
   font-size: 3.625rem;
   max-width: 90%;
