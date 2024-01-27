@@ -2,6 +2,9 @@ import { NextRequest } from "next/server";
 import { getAuthorPaths, getPublicationsPaths, getStoriesPaths } from "../../utils";
 import { NextApiRequest } from "next";
 
+// Add the static pages paths here
+const staticPages = ["publications", "about"];
+
 function generateSiteMap(
   host: string,
   publications: { publication: string }[],
@@ -16,10 +19,17 @@ function generateSiteMap(
        <loc>${root}</loc>
        <lastmod>${new Date().toISOString()}</lastmod>
      </url>
-     <url>
-       <loc>${root}/publications</loc>
-       <lastmod>${new Date().toISOString()}</lastmod>
-     </url>
+     ${staticPages
+       .map((path) => {
+         return `
+              <url>
+                  <loc>${root}/${path}</loc>
+                  <lastmod>${new Date().toISOString()}</lastmod>
+              </url>
+      `;
+       })
+       .join("")}
+     
      ${publications
        .map(({ publication }) => {
          return `

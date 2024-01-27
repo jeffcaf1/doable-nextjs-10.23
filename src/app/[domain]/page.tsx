@@ -6,34 +6,14 @@ export async function generateStaticParams() {
   return getDomainPaths();
 }
 
+// Update this function to change the metadata of the page
 export async function generateMetadata({ params }: { params: { domain: string } }) {
-  // Get the publication for the domain
-  const publications = (
-    await fetchPublications({
-      customConstraints: [
-        {
-          key: "domain",
-          constraint_type: "equals",
-          value: params.domain,
-        },
-      ],
-    })
-  )[0];
-
   return {
-    title: publications?.primaryTitle || "",
-    description: publications?.about || "",
+    title: "Doable",
+    description: "This is the homepage",
     openGraph: {
-      title: publications?.primaryTitle || "",
-      description: publications?.about || "",
       type: "website",
       url: `https://${params.domain}`,
-      images: [
-        {
-          url: publications?.heroImageUrl || "",
-          alt: publications?.heroImageAltText || "",
-        },
-      ],
       siteName: "Doable",
       locale: "en_US",
     },
