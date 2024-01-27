@@ -3,19 +3,6 @@
   width: 100%;
 }
 
-.body-container h2 {
-  font-size: 1.625rem;
-  font-weight: 600;
-  color: var(--text-heading);
-  border-left: 3px solid var(--border);
-  padding-left: 0.325rem;
-  margin-bottom: 2.1875rem;
-}
-
-.body-container h2:last-child {
-  margin-top: 0;
-}
-
 .body-container p {
   font-size: 1.0625rem;
   line-height: 1.4;
@@ -42,17 +29,16 @@
   border-bottom: 6px solid var(--border);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .body-container {
-    max-width: 100%;
-  }
-
-  .body-container h2 {
-    font-size: 1.25rem;
+    max-width: 95%;
+    margin: 0 auto;
   }
 
   .body-container p {
     font-size: 1rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
+    max-width: 95%;
+    margin: 0 auto;
   }
 }

@@ -17,6 +17,7 @@
     margin-top: .6rem;
     margin-bottom: 1rem;
     margin-left: 0.625rem;
+    max-width: 95%;
     color: black;
   }
 }

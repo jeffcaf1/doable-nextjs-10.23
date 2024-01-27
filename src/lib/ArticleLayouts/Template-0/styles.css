@@ -3,7 +3,7 @@
   flex-direction: column;
   max-width: var(--max-page-width);
   gap: 2.5rem;
-  padding-left: 1.25rem;
+  padding-left: 0.625rem;
   padding-top: 2.5rem;
   padding-bottom: 3.75rem;
   width: 100%;
@@ -24,8 +24,9 @@
 
 @media (max-width: 768px) {
   .article-content {
-    padding-right: 0.625rem;
-    padding-left: 0.625rem;
+    gap: 1.5rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
     padding-top: 0;
     padding-bottom: 2.725rem;
   }

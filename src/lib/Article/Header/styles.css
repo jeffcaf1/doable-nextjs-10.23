@@ -10,8 +10,8 @@
 .article-header-inner-wrapper {
   display: flex;
   flex-direction: column;
-  gap: .8rem;
-  width: 80%;
+  gap: 1rem;
+  width: 100%;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.625rem;
   padding-top: 5rem;
@@ -20,6 +20,7 @@
 
 .article-header-title {
   font-size: 3.625rem;
+  max-width: 90%;
   line-height: 1;
   color: var(--text-title-primary);
 }
@@ -28,7 +29,7 @@
   font-size: 1.1875rem;
   line-height: 1.4;
   color: var(--text-title-accent);
-  width: 75%;
+  max-width: 90%;
   font-weight: 300;
   border-left: 3px solid var(--border);
   padding-left: 0.625rem;
@@ -55,17 +56,20 @@
 @media (max-width: 768px) {
   .article-header-outer {
     gap: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     padding-bottom: 1rem;
   }
 
   .article-header-inner-wrapper {
     width: 100%;
     padding-top: 2.5rem;
+    gap: .7rem;
     padding-left: 0.625rem;
   }
 
   .article-header-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .article-header-publication-name {
@@ -73,7 +77,7 @@
   }
 
   .article-header-child-section-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .article-header-description {
     width: 100%;

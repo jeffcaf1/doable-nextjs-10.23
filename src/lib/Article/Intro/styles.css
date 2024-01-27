@@ -35,7 +35,9 @@
 
 @media (max-width: 768px) {
   .intro-container {
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
+
   }
 
   .intro-container p {

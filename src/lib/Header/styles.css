@@ -9,7 +9,12 @@
 }
 
 @media (max-width: 767px) {
-  .header-inner {
+  .header-outer {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+ .header-inner {
     gap: 2rem;
   }
 }

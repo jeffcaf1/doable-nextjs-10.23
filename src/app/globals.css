@@ -75,6 +75,14 @@ body {
   height: 100%;
 }
 
+.inner-v2 {
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+  display: flex;
+  padding-left: 0.625rem;
+  height: 100%;
+}
+
 @media (max-width: 768px) {
   .outer {
     padding: 0 0.3125rem;
