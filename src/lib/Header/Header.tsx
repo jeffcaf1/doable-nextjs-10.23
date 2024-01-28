@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 
 const Header = () => {
@@ -38,13 +38,13 @@ const Header = () => {
             <div className="header-hamburger-menu-inner" onClick={(e) => e.stopPropagation()}>
               <ul>
                 <li>
-                  <a href="/publications" className="nav-link hover">
+                  <a href="/publications" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
                     Our Publications
                   </a>
                 </li>
                 <li>
-                  <a href="/get-featured" className="btn-primary">
-                  GET FEATURED
+                  <a href="/get-featured" className="btn-primary" onClick={() => setIsMenuOpen(false)}>
+                    GET FEATURED
                   </a>
                 </li>
               </ul>
