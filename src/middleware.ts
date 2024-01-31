@@ -9,13 +9,20 @@ export const config = {
      * 3. /_static (inside /public)
      * 4. all root files inside /public (e.g. /favicon.ico)
      */
-    "/((?!api/|_next/|_static/|images/|_vercel|[\\w-]+\\\\w+).*)",
+    "/((?!api/|_next/|_static/|images/|assets/|_vercel|[\\w-]+\\\\w+).*)",
     "/sitemap.xml",
   ],
 };
 
+// Add any sites you want to ignored by the middleware
+const sitesToIgnore = ["/robots.txt"];
+
 export default async function middleware(req: NextRequest) {
   const url = req.nextUrl;
+
+  if (sitesToIgnore.includes(url.pathname)) {
+    return NextResponse.next();
+  }
 
   // Get hostname of request (e.g. demo.vercel.pub, demo.localhost:54321)
   const hostname = req.headers
