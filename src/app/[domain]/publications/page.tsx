@@ -5,18 +5,19 @@ import { fetchPublications, fetchPublicationsByDomain, parsePublication } from "
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
     title: "Doable's News Publications",
-    description: "List of B2B trade publications and industry news hosted by Doable",
+    description: "Explore Doable's publications and industry news sources. Our content covers breaking news and insights from top thought leaders across nearly all B2B and consumer interests.",
     openGraph: {
       type: "website",
       url: `https://${params.domain}/publications`,
       siteName: "Doable",
       locale: "en_US",
+      title: "Doable's News Publications",
+      images: ["/images/doable-og-image.png"],
+      description: "Explore Doable's publications and industry news sources. Our content covers breaking news and insights from top thought leaders across nearly all B2B and consumer interests.",
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Doable News Publications',
-      description: 'List of B2B trade publications and industry news hosted by Doable',
-      images: ['https://nextjs.org/og.png'], // Must be an absolute URL
+      site: '@doablehq',
     }
   };
 }

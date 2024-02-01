@@ -51,12 +51,16 @@ export async function generateMetadata({ params }: { params: { publication: stri
       images: [
         {
           url: currentPublication?.heroImageUrl || "",
-          alt: currentPublication?.heroImageAltText || "",
+          // alt: currentPublication?.heroImageAltText || "",
         },
       ],
       siteName: "Doable",
       locale: "en_US",
     },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@doablehq',
+    }
   };
 }
 

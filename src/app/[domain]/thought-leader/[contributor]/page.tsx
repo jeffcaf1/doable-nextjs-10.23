@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: { contributor: stri
 
   return {
     title: author?.name || "Doable",
+    description: author?.about || "",
     openGraph: {
       title: author?.name || "Doable",
       type: "profile",
@@ -41,6 +42,10 @@ export async function generateMetadata({ params }: { params: { contributor: stri
       lastName: author?.name?.split(" ")[1] || "",
       locale: "en_US",
     },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@doablehq',
+    }
   };
 }
 

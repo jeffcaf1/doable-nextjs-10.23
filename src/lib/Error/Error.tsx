@@ -1,5 +1,25 @@
 import "./styles.css";
 
+export async function generateMetadata({ params }: { params: { domain: string } }) {
+  return {
+    title: "Doable",
+    description: "Doable is a B2B thought leadership platform for trade news and insights across every industry. We offer our readers and viewers breaking news and insights from the top minds in technology, wellness, finance, and beyond.",
+    openGraph: {
+      type: "website",
+      url: `https://${params.domain}`,
+      siteName: "Doable",
+      title: "Doable",
+      images: ["/images/doable-og-image.png"],
+      locale: "en_US",
+      description: "Doable is a B2B thought leadership platform for trade news and insights across every industry. We offer our readers and viewers breaking news and insights from the top minds in technology, wellness, finance, and beyond.",
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@doablehq',
+    }
+  };
+}
+
 const ErrorComponent = () => {
   return (
     <main>

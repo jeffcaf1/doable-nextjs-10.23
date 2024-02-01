@@ -1,5 +1,25 @@
 import "./styles.css";
 
+export async function generateMetadata({ params }: { params: { domain: string } }) {
+  return {
+    title: "Get Featured",
+    description: "We want to speak with B2B thought leaders across all industries. We want your perspectives and insights on breaking news and fundamental topics that are unique to your trade.",
+      openGraph: {
+      type: "website",
+      url: `https://${params.domain}/get-featured`,
+      siteName: "Doable",
+      title: "Get Featured in Doable News",
+      images: ["/images/doable-og-image.png"],
+      locale: "en_US",
+      description: "We want to speak with B2B thought leaders across all industries. We want your perspectives and insights on breaking news and fundamental topics that are unique to your trade."
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@doablehq',
+    }
+  };
+}
+
 export default function GetFeatured() {
   return (
     <main className="page-main">

@@ -42,6 +42,10 @@ export async function generateMetadata({ params }: { params: { story: string; pu
       modifiedTime: story?.["Modified Date"] || "",
       locale: "en_US",
     },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@doablehq',
+    }
   };
 }
 
