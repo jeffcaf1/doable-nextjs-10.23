@@ -3,7 +3,7 @@ import { getAuthorPaths, getPublicationsPaths, getStoriesPaths } from "../../uti
 import { NextApiRequest } from "next";
 
 // Add the static pages paths here
-const staticPages = ["publications", "about", "get-featured"];
+const staticPages = ["publications", "about", "get-featured", "terms", "privacy"];
 
 function generateSiteMap(
   host: string,
