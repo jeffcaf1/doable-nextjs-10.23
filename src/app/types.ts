@@ -15,6 +15,7 @@ export type PublicationFromAPI = {
   heroImageCaption: string;
   relatedPublications?: string[];
   domain: string;
+  primaryParentSectionAsText: string;
 };
 
 export type StoryFromAPI = {

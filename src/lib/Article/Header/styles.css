@@ -21,7 +21,7 @@
 .homepage-title
 {
   font-size: 5rem;
-  max-width: 90%;
+  max-width: 80%;
   line-height: 1;
   font-weight: 700;
   color: var(--text-title-primary);
@@ -35,7 +35,7 @@
 }
 
 .article-header-description {
-  font-size: 1.1875rem;
+  font-size: 1.19rem;
   line-height: 1.4;
   color: var(--text-title-accent);
   max-width: 80%;
