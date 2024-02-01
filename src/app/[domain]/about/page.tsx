@@ -36,9 +36,18 @@ export default function About() {
         <div className="inner">
           <div className="page-inner">
             <p>
-              Doable is a news publication platform designed to elevate B2B thought leaders. We publish industry news across nearly all sectors like Technology,
-              AI, Health and Wellness, Personal Finance, Home Service Industry, and more...
+              Doable is a news publication platform designed to elevate thought leaders across nearly every industry. We publish the latest breaking news in Technology,
+              AI, Health and Wellness, Finance and Economy, Customer Experience, People Managaement, and more.
             </p>
+            <br></br>
+            <p>
+              But Doable is far from just another digital news site. We turn content into conversations and enable B2B companies to speak their customers' language and elevate prospects and internal voices to own the conversation around topics that matter.
+            </p>
+            <br></br>
+            <p>
+  Want to contribute or be interviewed? Email us today at <a className="body-links" href="mailto:hello@doablehq.com">hello@doablehq.com</a>
+</p>
+
           </div>
         </div>
       </section>

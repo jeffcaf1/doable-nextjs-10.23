@@ -15,7 +15,7 @@ const Layout = ({ sections = [] }: HomepageLayoutProps) => {
     <section className="publications">
       <Header
         customTitleComponent={<Title />}
-        description="Doable is a conversational content platform bringing you interviews and insights from top B2B thought leaders"
+        description="Doable turns content into conversations. We deliver breaking news and thought leadership perspectives across nearly every industry"
       />
       <section className="publication-lists-container">
         {sections.map((section) => (

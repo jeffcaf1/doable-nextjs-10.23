@@ -27,7 +27,7 @@ export default function GetFeatured() {
         <header>
           <div className="inner page-header-inner">
             <div className="page-header-inner-wrapper">
-              <h1 className="page-header-title">Want to fet featured in a Doable news story? Here's how...</h1>
+              <h1 className="page-header-title">Thought Leaders Wanted!</h1>
             </div>
           </div>
         </header>
@@ -35,7 +35,12 @@ export default function GetFeatured() {
       <section className="page-body-outer">
           <div className="inner">
           <div className="page-inner">
-              <p>Doable is always on the hunt for unique perspectives from B2B thought leaders who are experts in their fields. We want to hear from you!</p>
+              <p>Want to share your perspective on a timely news story? Or maybe your company has some big news you'd like to amplify?
+                Doable is always on the hunt for unique perspectives from thought leaders who are experts in their fields. We want to hear from you!</p>
+                <br />
+                <p>
+Email us today at <a className="body-links" href="mailto:hello@doablehq.com">hello@doablehq.com</a>
+</p>
           </div>
           </div>
       </section>
