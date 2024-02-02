@@ -48,7 +48,7 @@ const Header = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/publications" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
+                  <a href="/sections" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
                     Sections
                   </a>
                 </li>

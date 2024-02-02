@@ -14,7 +14,12 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="/publications" className="footer-link hover">
-                    Our Publications
+                    Publications
+                  </a>
+                </li>
+                <li>
+                  <a href="/sections" className="footer-link hover">
+                    Sections
                   </a>
                 </li>
               </ul>
