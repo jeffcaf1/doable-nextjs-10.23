@@ -2,8 +2,6 @@
 
 # manially ignored files and folders
 .env
-/sections
-
 
 # dependencies
 /node_modules
