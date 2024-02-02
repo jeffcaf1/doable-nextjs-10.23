@@ -52,7 +52,9 @@ export type ProfileFromAPI = {
   "Created Date": string;
   "Modified Date": string;
   draft: boolean;
-  name: string;
+  fullName: string;
+  firstName: string;
+  lastName: string;
   about: string;
   imageUrl: string;
   titleAndCompany: string;

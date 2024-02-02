@@ -23,23 +23,23 @@ export async function generateMetadata({ params }: { params: { contributor: stri
   const author = await fetchAuthor(params.contributor);
 
   return {
-    title: author?.name || "Doable",
+    title: author?.fullName || "Doable",
     description: author?.about || "",
     openGraph: {
-      title: author?.name || "Doable",
+      title: author?.fullName || "Doable",
       type: "profile",
       url: `https://${params.domain}/thought-leader/${params.contributor}`,
       images: [
         {
           url: author?.imageUrl || "",
-          alt: author?.name || "",
+          alt: author?.fullName || "",
         },
       ],
       description: author?.about || "",
       username: author?.Slug || "",
       siteName: "Doable",
-      firstName: author?.name?.split(" ")[0] || "",
-      lastName: author?.name?.split(" ")[1] || "",
+      firstName: author?.fullName?.split(" ")[0] || "",
+      lastName: author?.fullName?.split(" ")[1] || "",
       locale: "en_US",
     },
     twitter: {
@@ -116,7 +116,7 @@ export default async function Contributor({ params }: { params: { contributor: s
     dateModified: author?.["Modified Date"] || "",
     mainEntity: {
       "@type": author?.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
-      name: author?.name || "Doable",
+      name: author?.fullName || "Doable",
       alternateName: author?.Slug,
     },
   };
@@ -133,7 +133,7 @@ export default async function Contributor({ params }: { params: { contributor: s
               variant: "small",
             },
           ]}
-          title={author?.name}
+          title={author?.fullName}
           description={author?.about}
           titleAndCompany={author?.titleAndCompany}
           linkedInUrl={author?.linkedInUrl}
