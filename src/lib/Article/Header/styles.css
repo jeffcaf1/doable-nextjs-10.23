@@ -56,6 +56,17 @@
   line-height: 1;
 }
 
+.article-header-back-to-sections {
+  color: var(--border);
+  font-size: 1rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  width: max-content;
+  padding-right: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  line-height: 1;
+}
+
 .article-header-child-section-name {
   color: var(--text-title-accent);
   font-size: 2.2rem;

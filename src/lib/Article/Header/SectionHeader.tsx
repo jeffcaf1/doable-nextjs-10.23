@@ -19,6 +19,7 @@ const Header = ({ title, pubChildSectionTagAsText, description, publicationName,
               {publicationName.toLocaleLowerCase()}
             </h3>
           )}
+<a href="/sections" className="article-header-back-to-sections">back to sections</a>
           {pubChildSectionTagAsText && (
             <h3 className="article-header-child-section-name">
               {pubChildSectionTagAsText}

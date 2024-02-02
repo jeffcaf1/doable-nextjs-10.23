@@ -17,7 +17,12 @@ const Header = () => {
             <ul>
               <li>
                 <a href="/publications" className="nav-link hover">
-                  Our Publications
+                  Publications
+                </a>
+              </li>
+              <li>
+                <a href="/sections" className="nav-link hover">
+                  Sections
                 </a>
               </li>
               <li>
@@ -39,7 +44,12 @@ const Header = () => {
               <ul>
                 <li>
                   <a href="/publications" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
-                    Our Publications
+                    Publications
+                  </a>
+                </li>
+                <li>
+                  <a href="/publications" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
+                    Sections
                   </a>
                 </li>
                 <li>

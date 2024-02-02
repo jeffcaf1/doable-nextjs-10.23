@@ -1,4 +1,5 @@
 .publication-lists-container,
+.section-lists-container,
 .stories-lists-container {
   display: flex;
   flex-direction: column;
@@ -11,6 +12,11 @@
 
 @media (max-width: 768px) {
   .publication-lists-container
+  {
+    gap: 2.5rem;
+  }
+
+  .section-lists-container
   {
     gap: 2.5rem;
   }
