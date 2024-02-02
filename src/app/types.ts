@@ -43,6 +43,7 @@ export type StoryFromAPI = {
   parentPublication: string;
   parentPublicationTitle: string;
   pubChildSectionTagAsText: string;
+  primaryParentSectionAsText: string;
 };
 
 export type ProfileFromAPI = {
