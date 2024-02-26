@@ -11,7 +11,7 @@ const CardList = ({ title = "Featured", articles = [], variant = "small" }: Card
         <h3 className="card-list-title">{title}</h3>
       </div>
 
-      {articles.map((article) => (
+      {articles.slice().reverse().map((article) => (
         <Card key={v4()} variant={variant} image={article.image} title={article.title} description={article.description} link={article.link} />
       ))}
     </div>
