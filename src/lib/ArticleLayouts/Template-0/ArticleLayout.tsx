@@ -14,7 +14,7 @@ const Template0 = async ({ story, sections }: { story: StoryFromAPI; sections: C
   return (
     <>
       <article className="article template-0">
-        <Header pubChildSectionTagAsText={story?.pubChildSectionTagAsText} title={story?.titlePrimary} publicationName={story?.parentPublicationTitle} 
+        <Header pubChildSectionTagAsText={story?.pubChildSectionTagAsText} title={story?.titlePrimary} publicationName={story?.parentPublicationTitle } publicationSlugAsText={story?.publicationSlugAsText} 
         />
         <section className="article-content">
           <Author author={story?.authorName} authorSlug={story?.authorProfileSlug} timeStamp={story?.["Created Date"]} />

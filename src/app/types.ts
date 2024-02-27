@@ -42,6 +42,7 @@ export type StoryFromAPI = {
   featuredPplAndCosProfiles?: string[];
   parentPublication: string;
   parentPublicationTitle: string;
+  publicationSlugAsText: string;
   pubChildSectionTagAsText: string;
   primaryParentSectionAsText: string;
 };
