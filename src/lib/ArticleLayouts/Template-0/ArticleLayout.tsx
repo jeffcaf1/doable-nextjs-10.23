@@ -27,11 +27,13 @@ const Template0 = async ({ story, sections }: { story: StoryFromAPI; sections: C
         </section>
       </article>
 
-      <section className="article-sections-container inner">
-        {sections.map((section) => (
-          <CardList key={v4()} title={section.title} articles={section.articles} variant={section.variant} />
-        ))}
-      </section>
+      {sections.some(section => section.articles.length > 0) && (
+        <section className="article-sections-container inner">
+          {sections.map((section) => (
+            section.articles.length > 0 && <CardList key={v4()} title={section.title} articles={section.articles} variant={section.variant} />
+          ))}
+        </section>
+      )}
     </>
   );
 };
