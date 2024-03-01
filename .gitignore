@@ -3,6 +3,10 @@
 # manially ignored files and folders
 .env
 
+src/app/[domain]/sections
+src/lib/Layouts/SectionsLayout.tsx
+src/lib/Article/Header/SectionHeader.tsx
+
 # dependencies
 /node_modules
 /.pnp
