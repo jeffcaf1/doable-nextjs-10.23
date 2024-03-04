@@ -4,13 +4,13 @@ import "./styles.css";
 type HeaderProps = {
   title?: string;
   description?: string;
-  pubChildSectionTagAsText?: string;
+  childSectionTagAsText?: string;
   publicationSlugAsText?: string;
   publicationName?: string;
   customTitleComponent?: React.ReactNode;
 };
 
-const Header = ({ title, pubChildSectionTagAsText, description, publicationName, publicationSlugAsText, customTitleComponent }: HeaderProps) => {
+const Header = ({ title, childSectionTagAsText, description, publicationName, publicationSlugAsText, customTitleComponent }: HeaderProps) => {
 
   const pubSlug = publicationSlugAsText ? `/${publicationSlugAsText}` : '#';
 
@@ -23,9 +23,9 @@ const Header = ({ title, pubChildSectionTagAsText, description, publicationName,
              <a href={pubSlug}>{publicationName.toLocaleLowerCase()}</a>
             </h3>
           )}
-          {pubChildSectionTagAsText && (
+          {childSectionTagAsText && (
             <h3 className="article-header-child-section-name">
-              {pubChildSectionTagAsText}
+              {childSectionTagAsText}
             </h3>
           )}   
                  {!customTitleComponent && <h1 className="article-header-title">{title}</h1>}
