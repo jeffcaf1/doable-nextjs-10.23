@@ -3,19 +3,15 @@ export type PublicationFromAPI = {
   _id: string;
   "Created Date": string;
   "Modified Date": string;
-  approved: boolean;
   draft: boolean;
-  isSectionUnderPub: boolean;
   allStories?: string[];
   primaryTitle: string;
-  secondaryTitle: string;
   about: string;
   heroImageUrl: string;
   heroImageAltText: string;
   heroImageCaption: string;
   relatedPublications?: string[];
   domain: string;
-  primaryParentSectionAsText: string;
 };
 
 export type StoryFromAPI = {
@@ -39,12 +35,10 @@ export type StoryFromAPI = {
   innerHtmlBody: string;
   featuredOnHomepage: boolean;
   relatedStories?: string[];
-  featuredPplAndCosProfiles?: string[];
   parentPublication: string;
   parentPublicationTitle: string;
   publicationSlugAsText: string;
-  pubChildSectionTagAsText: string;
-  primaryParentSectionAsText: string;
+  childSectionTagAsText: string;
 };
 
 export type ProfileFromAPI = {

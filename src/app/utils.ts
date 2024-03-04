@@ -21,11 +21,6 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
       value: false,
     },
     {
-      key: "privateClient",
-      constraint_type: "equals",
-      value: false,
-    },
-    {
       key: "allStories",
       constraint_type: "not empty",
     },
@@ -72,11 +67,6 @@ export const fetchStories = async ({ start = 0, customConstraints = [] }: { star
       key: "draft",
       constraint_type: "equals",
       value: false,
-    },
-    {
-      key: "approved",
-      constraint_type: "equals",
-      value: true,
     },
     {
       key: "isTemplate",
