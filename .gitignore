@@ -1,8 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# manially ignored files and folders
+# manually ignored files and folders
 .env
 
+# pages in progress
 src/app/[domain]/sections
 src/lib/Layouts/SectionsLayout.tsx
 src/lib/Article/Header/SectionHeader.tsx
