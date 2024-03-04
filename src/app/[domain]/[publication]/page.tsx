@@ -120,11 +120,11 @@ export default async function Publication({ params }: { params: { publication: s
             articles: stories.map((story) => parseStory(story, currentPublication?.Slug || "")),
             variant: "small",
           },
-          {
-            title: "Related Publications",
-            articles: relatedPublications.map((publication) => parsePublication(publication)),
-            variant: "small",
-          },
+          // {
+           // title: "Related Publications",
+          //  articles: relatedPublications.map((publication) => parsePublication(publication)),
+          //  variant: "small",
+         // },
         ]}
         title={currentPublication?.primaryTitle}
         description={currentPublication?.about}

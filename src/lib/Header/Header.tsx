@@ -21,11 +21,6 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a href="/sections" className="nav-link hover">
-                  Sections
-                </a>
-              </li>
-              <li>
                 <a href="/get-featured" className="btn-primary">
                   Get Featured
                 </a>
@@ -45,11 +40,6 @@ const Header = () => {
                 <li>
                   <a href="/publications" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
                     Publications
-                  </a>
-                </li>
-                <li>
-                  <a href="/sections" className="nav-link hover" onClick={() => setIsMenuOpen(false)}>
-                    Sections
                   </a>
                 </li>
                 <li>

@@ -17,11 +17,7 @@ const Footer = () => {
                     Publications
                   </a>
                 </li>
-                <li>
-                  <a href="/sections" className="footer-link hover">
-                    Sections
-                  </a>
-                </li>
+
               </ul>
 
               <ul className="footer-nav-column">

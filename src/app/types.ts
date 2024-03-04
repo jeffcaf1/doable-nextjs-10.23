@@ -7,6 +7,7 @@ export type PublicationFromAPI = {
   allStories?: string[];
   primaryTitle: string;
   about: string;
+  isFeaturedTop3: boolean;
   heroImageUrl: string;
   heroImageAltText: string;
   heroImageCaption: string;
