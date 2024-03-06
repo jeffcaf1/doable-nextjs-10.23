@@ -1,7 +1,5 @@
-import Template0 from "@/lib/ArticleLayouts/Template-0/ArticleLayout";
 import Layout from "@/lib/Layouts/PublicationLayout";
 import { Metadata } from "next";
-import { headers } from "next/headers";
 import { fetchPublications, fetchStories, getPublicationsPaths, parsePublication, parseStory } from "../../utils";
 import { notFound } from "next/navigation";
 
@@ -85,26 +83,32 @@ export default async function Publication({ params }: { params: { publication: s
     // Show 404 page
     notFound();
   }
+  
+   // Extract the featured stories IDs from the currentPublication
+   const featuredStoriesIds = currentPublication?.featuredStories || [];
 
-  // Fetch all stories for the current publication
-  const stories = await fetchStories({
-    customConstraints: [
-      {
-        key: "parentPublication",
-        constraint_type: "equals",
-        value: currentPublication?._id,
-      },
-    ],
-  });
+   // Fetch all stories for the current publication
+   const stories = await fetchStories({
+     customConstraints: [
+       {
+         key: "parentPublication",
+         constraint_type: "equals",
+         value: currentPublication?._id,
+       },
+     ],
+   });
 
   // Fetch all related publications for the current publication
-  const relatedPublications = (
-    await Promise.all(
-      (currentPublication?.relatedPublications || [])?.map(
-        async (publication) => (await fetchPublications({ customConstraints: [{ key: "_id", constraint_type: "equals", value: publication }] }))[0]
-      )
-    )
-  ).filter((publication) => !!publication);
+  // const relatedPublications = (
+  //   await Promise.all(
+  //     (currentPublication?.relatedPublications || [])?.map(
+  //        async (publication) => (await fetchPublications({ customConstraints: [{ key: "_id", constraint_type: "equals", value: publication }] }))[0]
+  //      )
+  //  )
+  // ).filter((publication) => !!publication);
+
+  // Filter the stories to include only the ones that are featured
+  const featuredStories = stories.filter(story => featuredStoriesIds.includes(story._id));
 
   return (
     <main className="page-main">
@@ -112,7 +116,7 @@ export default async function Publication({ params }: { params: { publication: s
         sections={[
           {
             title: "Featured Stories",
-            articles: stories.slice(0, 3).map((story) => parseStory(story, currentPublication?.Slug || "")),
+            articles: featuredStories.map((story) => parseStory(story, currentPublication?.Slug || "")),
             variant: "small",
           },
           {
@@ -120,11 +124,6 @@ export default async function Publication({ params }: { params: { publication: s
             articles: stories.map((story) => parseStory(story, currentPublication?.Slug || "")),
             variant: "small",
           },
-          // {
-           // title: "Related Publications",
-          //  articles: relatedPublications.map((publication) => parsePublication(publication)),
-          //  variant: "small",
-         // },
         ]}
         title={currentPublication?.primaryTitle}
         description={currentPublication?.about}

@@ -1,6 +1,5 @@
 import Layout from "@/lib/Layouts/HomepageLayout";
 import { fetchPublications, fetchStories, getDomainPaths, getPublicationsPaths, getStoriesPaths, parsePublication, parseStory } from "../utils";
-import exp from "constants";
 
 export async function generateStaticParams() {
   return getDomainPaths();
