@@ -65,7 +65,7 @@ const Footer = () => {
           <div className="footer-inner-right">
             <div className="footer-inner-right-container">
               <a href="/get-featured" className="btn-primary footer-cta">
-                GET FEATURED
+                Get Featured
               </a>
             </div>
           </div>
