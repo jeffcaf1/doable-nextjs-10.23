@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       siteName: "Doable",
       locale: "en_US",
       title: "Doable's News Publications",
-      images: ["/images/doable-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
       description: "Explore Doable's publications and industry news sources. Our content covers breaking news and insights from top thought leaders across nearly all B2B and consumer interests.",
     },
     twitter: {

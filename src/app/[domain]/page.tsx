@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       url: `https://${params.domain}`,
       siteName: "Doable News | Insights Amplified",
       title: "Doable News | Insights Amplified",
-      images: ["/images/doable-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
       locale: "en_US",
       description: "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     },

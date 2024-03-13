@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       url: `https://${params.domain}/terms`,
       siteName: "Doable",
       title: "Terms and Conditions",
-      images: ["/images/doable-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
       locale: "en_US",
       description: "These Terms of Service govern each website, mobile site, application, and/or other service, regardless of how distributed, transmitted, published, or broadcast provided by Doable, its parent, subsidiaries and/or affiliates.",
     },
