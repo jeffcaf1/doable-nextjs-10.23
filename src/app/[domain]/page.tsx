@@ -8,16 +8,16 @@ export async function generateStaticParams() {
 // Update this function to change the metadata of the page
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
-   title: "Doable | News + Thought Leadership,
-    description: "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
-    openGraph: {
+   title: "Doable | News + Thought Leadership",
+   description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+   openGraph: {
       type: "website",
       url: `https://${params.domain}`,
       siteName: "Doable News | Insights Amplified",
       title: "Doable News | Insights Amplified",
       images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
       locale: "en_US",
-      description: "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+      description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
     },
     twitter: {
       card: 'summary_large_image',

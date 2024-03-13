@@ -56,7 +56,7 @@ export default async function Publications({ params }: { params: { domain: strin
         "@id": "https://alldoable.com/#website",
         "url": "https://alldoable.com/",
         "name": "Doable | News + Thought Leadership",
-        "description": "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+        "description": "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
         "publisher": { "@id": "https://alldoable.com/" },
         "alternateName": ["Doable", "doable"]
       },

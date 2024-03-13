@@ -7,11 +7,11 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     openGraph: {
       type: "website",
       url: `https://${params.domain}/about`,
-      siteName: "Doable | News + Thought Leadership,
+      siteName: "Doable | News + Thought Leadership",
       title: "About Doable",
       images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
       locale: "en_US",
-      description: "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+      description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
     },
     twitter: {
       card: 'summary_large_image',
