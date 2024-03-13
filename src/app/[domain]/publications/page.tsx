@@ -90,7 +90,7 @@ export default async function Publications({ params }: { params: { domain: strin
         sections={[
           {
             title: "Featured Publications",
-            articles: featuredPublications.map(parsePublication),
+            articles: featuredPublications.slice().reverse().map(parsePublication),
             variant: "small",
           },
           {

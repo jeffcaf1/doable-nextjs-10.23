@@ -80,7 +80,7 @@ export default async function Home({ params: { domain } }: { params: { domain: s
         sections={[
           {
             title: "Featured Publications",
-            articles: featuredPublications.map(parsePublication),
+            articles: featuredPublications.slice().reverse().map(parsePublication),
             variant: "small",
           },
           {
