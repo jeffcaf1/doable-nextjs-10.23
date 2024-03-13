@@ -12,8 +12,8 @@ type PublicationsLayoutProps = {
 };
 
 const Layout = ({
-  title = "Our Publications",
-  description = "Explore Doable's publications and industry news sources. Our content covers breaking news and insights from top thought leaders across nearly all B2B and consumer interests.",
+  title = "",
+  description = "",
   sections = [],
 }: PublicationsLayoutProps) => {
   return (
