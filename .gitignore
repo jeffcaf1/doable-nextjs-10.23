@@ -4,7 +4,7 @@
 .env
 
 # pages in progress
-src/app/[domain]/sections
+src/app/*/sections
 src/lib/Layouts/SectionsLayout.tsx
 src/lib/Article/Header/SectionHeader.tsx
 
