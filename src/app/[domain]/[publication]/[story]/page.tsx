@@ -99,9 +99,9 @@ export default async function Story({ params }: { params: { story: string; publi
     ],
     "logo": {
       "@type": "ImageObject",
-      "url": "",
-      "width": 250,
-      "height": 50
+      "url": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+      "width": 660,
+      "height": 1220
     }
   };
 

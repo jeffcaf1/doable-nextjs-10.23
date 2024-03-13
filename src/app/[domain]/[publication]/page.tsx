@@ -110,8 +110,54 @@ export default async function Publication({ params }: { params: { publication: s
   // Filter the stories to include only the ones that are featured
   const featuredStories = stories.filter(story => featuredStoriesIds.includes(story._id));
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `https://www.alldoable.com/${currentPublication?.Slug}`,
+        "url": `https://www.alldoable.com/${currentPublication?.Slug}`,
+        "name": `Doable | ${currentPublication?.primaryTitle} News`,
+        "about": { "@id": "https://www.alldoable.com/about" },
+        "description": `${currentPublication?.about}`,
+        "breadcrumb": { "@id": "https://alldoable.com/" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://alldoable.com/#website",
+        "url": "https://alldoable.com/",
+        "name": "Doable",
+        "description": "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+        "publisher": { "@id": "https://alldoable.com/" },
+        "alternateName": ["Doable News", "doable"]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://alldoable.com/",
+        "name": "Doable",
+        "alternateName": "TC",
+        "url": "https://alldoable.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "en-US",
+          "@id": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+          "url": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+          "contentUrl": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+          "width": 660,
+          "height": 1220,
+          "caption": "Doable News Logo"
+        },
+        "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png" },
+        "sameAs": ["https://www.linkedin.com/company/xdoable/"]
+      }
+    ]
+  };
+
   return (
-    <main className="page-main">
+    <section>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ jsonLd }) }} />
+   <main className="page-main">
       <Layout
         sections={[
           {
@@ -129,5 +175,6 @@ export default async function Publication({ params }: { params: { publication: s
         description={currentPublication?.about}
       />
     </main>
+    </section>
   );
 }
