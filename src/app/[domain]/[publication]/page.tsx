@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: { publication: stri
           // alt: currentPublication?.heroImageAltText || "",
         },
       ],
-      siteName: "Doable",
+      siteName: "Doable News",
       locale: "en_US",
     },
     twitter: {
@@ -127,15 +127,15 @@ export default async function Publication({ params }: { params: { publication: s
         "@type": "WebSite",
         "@id": "https://alldoable.com/#website",
         "url": "https://alldoable.com/",
-        "name": "Doable",
+        "name": "Doable News",
         "description": "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
         "publisher": { "@id": "https://alldoable.com/" },
-        "alternateName": ["Doable News", "doable"]
+        "alternateName": ["Doable", "doable"]
       },
       {
         "@type": "Organization",
         "@id": "https://alldoable.com/",
-        "name": "Doable",
+        "name": "Doable News",
         "alternateName": "TC",
         "url": "https://alldoable.com/",
         "logo": {

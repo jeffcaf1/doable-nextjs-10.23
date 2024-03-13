@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     openGraph: {
       type: "website",
       url: `https://${params.domain}/terms`,
-      siteName: "Doable",
+      siteName: "Doable News",
       title: "Terms and Conditions",
       images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
       locale: "en_US",

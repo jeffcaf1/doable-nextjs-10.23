@@ -2,7 +2,7 @@ import "./styles.css";
 
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
-    title: "Doable",
+   title: "Doable News",
     description: "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     openGraph: {
       type: "website",
