@@ -5,7 +5,7 @@ import Footer from "@/lib/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Doable",
-  description: "Doable is a B2B thought leadership platform for trade news and insights across every industry. We offer our readers and viewers breaking news and insights from the top minds in technology, wellness, finance, and beyond.",
+  description: "Doable is a B2B thought leadership platform for trade news and insights across every industry. We offer our readers and viewers breaking news and insights from the top voices in technology, wellness, finance, and beyond.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
