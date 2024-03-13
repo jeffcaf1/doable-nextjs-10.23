@@ -4,16 +4,16 @@ import { fetchPublications, fetchPublicationsByDomain, parsePublication } from "
 // Update this function to change the metadata of the page
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
-    title: "Doable's News Publications",
-    description: "Explore Doable's publications and industry news sources. Our content covers breaking news and insights from top thought leaders across nearly all B2B and consumer interests.",
+    title: "Doable | News Publications",
+    description: "Explore Doable's news publications B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     openGraph: {
       type: "website",
       url: `https://${params.domain}/publications`,
       siteName: "Doable",
       locale: "en_US",
-      title: "Doable's News Publications",
+      title: "Doable | News Publications",
       images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
-      description: "Explore Doable's publications and industry news sources. Our content covers breaking news and insights from top thought leaders across nearly all B2B and consumer interests.",
+      description: "Explore Doable's news publications B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     },
     twitter: {
       card: 'summary_large_image',
