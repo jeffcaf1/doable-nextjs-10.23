@@ -88,6 +88,21 @@ export default async function Story({ params }: { params: { story: string; publi
         url: `https://${params.domain}/thought-leader/${story?.authorProfileSlug || ""}`,
       },
     ],
+    description: story?.description || "",
+    articleSection: story?.parentPublicationTitle || "",
+    publisher: [
+      {
+        "@type": "Organization",
+        "name": "Doable",
+        "url": "https://alldoable.com",
+      },
+    ],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "",
+      "width": 250,
+      "height": 50
+    }
   };
 
   return (
