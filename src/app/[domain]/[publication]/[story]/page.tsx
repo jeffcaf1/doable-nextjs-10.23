@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: { story: string; pu
           alt: story?.heroImageAltText || "",
         },
       ],
-      siteName: "Doable News",
+      siteName: "Doable | News + Thought Leadership,
       publishedTime: story?.["Created Date"] || "",
       modifiedTime: story?.["Modified Date"] || "",
       locale: "en_US",
@@ -93,7 +93,7 @@ export default async function Story({ params }: { params: { story: string; publi
     publisher: [
       {
         "@type": "Organization",
-        "name": "Doable News",
+        "name": "Doable | News + Thought Leadership,
         "url": "https://alldoable.com",
       },
     ],

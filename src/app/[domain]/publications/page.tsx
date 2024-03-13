@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     openGraph: {
       type: "website",
       url: `https://${params.domain}/publications`,
-      siteName: "Doable News",
+      siteName: "Doable | News + Thought Leadership",
       locale: "en_US",
       title: "Doable | All Publications",
       images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
@@ -55,7 +55,7 @@ export default async function Publications({ params }: { params: { domain: strin
         "@type": "WebSite",
         "@id": "https://alldoable.com/#website",
         "url": "https://alldoable.com/",
-        "name": "Doable News",
+        "name": "Doable | News + Thought Leadership",
         "description": "Doable is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
         "publisher": { "@id": "https://alldoable.com/" },
         "alternateName": ["Doable", "doable"]
@@ -63,8 +63,8 @@ export default async function Publications({ params }: { params: { domain: strin
       {
         "@type": "Organization",
         "@id": "https://alldoable.com/",
-        "name": "Doable News",
-        "alternateName": "TC",
+        "name": "Doable | News + Thought Leadership",
+        "alternateName": ["Doable", "doable"],
         "url": "https://alldoable.com/",
         "logo": {
           "@type": "ImageObject",
