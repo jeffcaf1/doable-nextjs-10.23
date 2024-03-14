@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: { contributor: stri
       ],
       description: author?.about || "",
       username: author?.Slug || "",
-      siteName: "Doable | News + Thought Leadership,
+      siteName: "Doable | News + Thought Leadership",
       firstName: author?.fullName?.split(" ")[0] || "",
       lastName: author?.fullName?.split(" ")[1] || "",
       locale: "en_US",
