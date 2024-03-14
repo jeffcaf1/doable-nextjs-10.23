@@ -28,7 +28,7 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
   ];
 
   const { response } = await fetch(API_ENDPOINT_PUBLICATIONS + start + "/&constraints=" + JSON.stringify(constraints), {
-    next: { tags: ["publication"] },
+    next: { tags: ["publications"] },
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
     },
@@ -83,7 +83,7 @@ export const fetchStories = async ({ start = 0, customConstraints = [] }: { star
 
   let stories = [] as StoryFromAPI[];
 
-  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["story"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["stories"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -119,7 +119,7 @@ export const fetchStory = async (slug: string) => {
 
   let story = {} as StoryFromAPI;
 
-  const { response } = await fetch(getApiEndpointForStories(slug), { next: { tags: ["story"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForStories(slug), { next: { tags: [slug] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -146,7 +146,7 @@ export const fetchAuthor = async (slug: string) => {
 
   let author = {} as ProfileFromAPI;
 
-  const { response } = await fetch(getApiEndpointForAuthors(slug), { next: { tags: ["profile"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForAuthors(slug), { next: { tags: [slug] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -181,7 +181,7 @@ export const fetchAuthors = async () => {
 
   let authors = [] as ProfileFromAPI[];
 
-  const { response } = await fetch(getApiEndpointForAuthors(), { next: { tags: ["profile"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForAuthors(), { next: { tags: ["profiles"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
