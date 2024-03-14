@@ -83,7 +83,7 @@ export default async function Story({ params }: { params: { story: string; publi
     dateModified: story?.["Modified Date"] || "",
     author: [
       {
-        "@type": story.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
+        "@type": story?.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
         name: story?.authorName || "",
         url: `https://${params.domain}/thought-leader/${story?.authorProfileSlug || ""}`,
       },
