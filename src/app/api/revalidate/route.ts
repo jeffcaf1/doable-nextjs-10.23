@@ -29,8 +29,6 @@ export async function POST(request: NextRequest) {
     To revalidate a specific story or thought-leaders page use the slug as the tag
   */
 
-  console.log("Request headers: ", request.headers, process.env.WEBHOOK_SECRET);
-
   // Check if the request has the correct secret
   if (request.headers.get("api-key") !== process.env.WEBHOOK_SECRET) {
     return new Response("Unauthorized", { status: 401 });
