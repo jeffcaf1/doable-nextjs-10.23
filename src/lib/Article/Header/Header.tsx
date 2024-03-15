@@ -19,9 +19,9 @@ const Header = ({ title, childSectionTagAsText, description, publicationName, pu
       <div className="inner article-header-inner">
         <div className="article-header-inner-wrapper">
           {publicationName && (
-            <h3 className="article-header-publication-name">
+            <h2 className="article-header-publication-name">
              <a href={pubSlug}>{publicationName.toLocaleLowerCase()}</a>
-            </h3>
+            </h2>
           )}
           {childSectionTagAsText && (
             <h3 className="article-header-child-section-name">
