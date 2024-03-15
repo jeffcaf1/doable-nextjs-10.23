@@ -48,6 +48,7 @@
     .page-header-outer {
       gap: 1rem;
       padding-bottom: 1rem;
+      padding-left: 0.5rem;
     }
 
     .page-body-outer {

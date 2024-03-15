@@ -138,7 +138,7 @@
 
 @media (max-width: 1120px) {
   .header-logo {
-    max-width: 30rem;
+    max-width: 28rem;
   }
 }
 
@@ -169,5 +169,11 @@
 
   .header-nav-inner {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    max-width: 17rem;
   }
 }
