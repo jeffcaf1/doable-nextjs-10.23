@@ -93,7 +93,7 @@
   }
 
   .article-header-title {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .article-header-publication-name {
@@ -106,6 +106,6 @@
   .article-header-description {
     width: 100%;
     margin-left: 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }

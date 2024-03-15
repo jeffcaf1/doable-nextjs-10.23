@@ -11,6 +11,7 @@
     background: white;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    min-height: 360px;
   }
   
   .page-header-inner {
@@ -50,8 +51,8 @@
     }
 
     .page-body-outer {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
       }
   
     .page-header-inner-wrapper {
