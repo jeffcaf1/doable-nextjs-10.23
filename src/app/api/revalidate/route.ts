@@ -8,21 +8,12 @@ export async function GET(request: NextRequest) {
     return new Response("Unauthorized", { status: 401 });
   }
 
-  // Revalidate all publications, stories, and profiles list
-  revalidateTag("publications");
-  revalidateTag("stories");
-  revalidateTag("profiles");
-
-  // If query includes a slug, revalidate the specific page
-  const slug = request.nextUrl.searchParams.get("slug");
-  if (slug) {
-    revalidateTag(slug);
-  }
+  // Revalidate all cached data
+  revalidateTag("all");
 
   return NextResponse.json({
     revalidated: true,
     now: Date.now(),
-    cache: "no-store",
   });
 }
 
@@ -31,18 +22,30 @@ export async function POST(request: NextRequest) {
   /* 
     Tags:
 
-    stories: Revalidate all stories list
-    profiles: Revalidate all authors/thought-leaders list
-    publications: Revalidate all publications list
+    story: Revalidate all stories list
+    profile: Revalidate all authors/thought-leaders list
+    publication: Revalidate all publications list
 
     To revalidate a specific story or thought-leaders page use the slug as the tag
   */
 
-  // Implement webhook authentication here
+  // Check if the request has the correct secret
+  if (request.headers.get("api-key") !== process.env.WEBHOOK_SECRET) {
+    return new Response("Unauthorized", { status: 401 });
+  }
 
-  // Implement webhook logic here. The tag will be determined by the webhook payload.
-  const tag = "publications";
-  revalidateTag(tag);
+  const payload = await request.json();
+
+  const tags = payload.tags as string[];
+  const slugs = payload.slugs as string[];
+
+  tags.forEach((tag) => {
+    revalidateTag(tag);
+  });
+
+  slugs.forEach((slug) => {
+    revalidateTag(slug);
+  });
 
   return NextResponse.json({
     revalidated: true,
