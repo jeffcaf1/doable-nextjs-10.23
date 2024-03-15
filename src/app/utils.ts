@@ -48,7 +48,7 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
     publications.push(...(await fetchPublications({ start: response.count })));
   }
 
-  //console.log("Publications fetched: ", publications.length);
+  console.log("Publications fetched: ", publications.length);
 
   return publications;
 };
