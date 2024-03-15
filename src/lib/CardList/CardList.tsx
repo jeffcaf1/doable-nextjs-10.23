@@ -8,7 +8,7 @@ const CardList = ({ title = "Featured", articles = [], variant = "small" }: Card
   return (
     <div className={`card-list card-list-variant-${variant}`}>
       <div className="card-list-header">
-        <h3 className="card-list-title">{title}</h3>
+        <h4 className="card-list-title">{title}</h4>
       </div>
 
       {articles.slice().reverse().map((article) => (

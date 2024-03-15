@@ -28,7 +28,7 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
   ];
 
   const { response } = await fetch(API_ENDPOINT_PUBLICATIONS + start + "/&constraints=" + JSON.stringify(constraints), {
-    next: { tags: ["publications"] },
+    next: { tags: ["publication", "all"] },
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
     },
@@ -47,8 +47,6 @@ export const fetchPublications = async ({ start = 0, customConstraints = [] }: {
   if (response.remaining > 0) {
     publications.push(...(await fetchPublications({ start: response.count })));
   }
-
-  //console.log("Publications fetched: ", publications.length);
 
   return publications;
 };
@@ -83,7 +81,7 @@ export const fetchStories = async ({ start = 0, customConstraints = [] }: { star
 
   let stories = [] as StoryFromAPI[];
 
-  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["stories"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForStories(start), { next: { tags: ["story", "all"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -119,7 +117,7 @@ export const fetchStory = async (slug: string) => {
 
   let story = {} as StoryFromAPI;
 
-  const { response } = await fetch(getApiEndpointForStories(slug), { next: { tags: [slug] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForStories(slug), { next: { tags: [slug, "all"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -146,7 +144,7 @@ export const fetchAuthor = async (slug: string) => {
 
   let author = {} as ProfileFromAPI;
 
-  const { response } = await fetch(getApiEndpointForAuthors(slug), { next: { tags: [slug] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForAuthors(slug), { next: { tags: [slug, "all"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {
@@ -181,7 +179,7 @@ export const fetchAuthors = async () => {
 
   let authors = [] as ProfileFromAPI[];
 
-  const { response } = await fetch(getApiEndpointForAuthors(), { next: { tags: ["profiles"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
+  const { response } = await fetch(getApiEndpointForAuthors(), { next: { tags: ["profile", "all"] }, headers: { Authorization: `Bearer ${API_TOKEN}` } })
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => {

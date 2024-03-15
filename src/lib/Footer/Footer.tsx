@@ -49,12 +49,7 @@ const Footer = () => {
 
               <ul className="footer-nav-social">
                 <li>
-                  <a href="https://www.twitter.com" className="hover">
-                    <img src="/images/twitter.png" alt="Twitter" className="footer-social-icon" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com" className="hover">
+                  <a href="https://www.linkedin.com/company/xdoable/" className="hover">
                     <img src="/images/linkedin.png" alt="LinkedIn" className="footer-social-icon" />
                   </a>
                 </li>

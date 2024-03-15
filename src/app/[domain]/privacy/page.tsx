@@ -4,6 +4,9 @@ export async function generateMetadata({ params }: { params: { domain: string } 
   return {
     title: "Privacy Policy",
     description: "At Doable, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
+    alternates: {
+      canonical: `https://${params.domain}/privacy`,
+    },
     openGraph: {
       type: "website",
       url: `https://${params.domain}/privacy`,

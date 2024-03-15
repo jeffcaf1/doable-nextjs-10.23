@@ -26,6 +26,9 @@ export async function generateMetadata({ params }: { params: { story: string; pu
   return {
     title: story?.titlePrimary || "",
     description: story?.description || "",
+    alternates: {
+      canonical: `https://${params.domain}/${params.publication}/${params.story}`,
+    },
     openGraph: {
       title: story?.titlePrimary || "",
       description: story?.description || "",
@@ -83,7 +86,7 @@ export default async function Story({ params }: { params: { story: string; publi
     dateModified: story?.["Modified Date"] || "",
     author: [
       {
-        "@type": story.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
+        "@type": story?.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
         name: story?.authorName || "",
         url: `https://${params.domain}/thought-leader/${story?.authorProfileSlug || ""}`,
       },
@@ -105,21 +108,24 @@ export default async function Story({ params }: { params: { story: string; publi
     }
   };
 
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ jsonLd }) }} />
-      <main className="article-main">
-        <Template0
-          story={story}
-          sections={[
-            {
-              title: "Related Stories",
-              articles: relatedArticles.map((article) => parseStory(article, params.publication)),
-              variant: "small",
-            },
-          ]}
-        />
-      </main>
-    </>
-  );
+ // Await the result of Template0
+ const template = await Template0({
+  story,
+  sections: [
+    {
+      title: "Related Stories",
+      articles: relatedArticles.map((article) => parseStory(article, params.publication)),
+      variant: "small",
+    },
+  ]
+});
+
+return (
+  <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ jsonLd }) }} />
+    <main className="article-main">
+      {template} {/* Render the Template0 here */}
+    </main>
+  </>
+);
 }

@@ -10,6 +10,9 @@ export async function generateMetadata({ params }: { params: { domain: string } 
   return {
    title: "Doable | News + Thought Leadership",
    description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+   alternates: {
+    canonical: `https://${params.domain}`,
+  },
    openGraph: {
       type: "website",
       url: `https://${params.domain}`,

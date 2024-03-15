@@ -4,6 +4,9 @@ export async function generateMetadata({ params }: { params: { domain: string } 
   return {
     title: "Terms and Conditions",
     description: "These Terms of Service govern each website, mobile site, application, and/or other service, regardless of how distributed, transmitted, published, or broadcast provided by Doable, its parent, subsidiaries and/or affiliates.",
+    alternates: {
+      canonical: `https://${params.domain}/terms`,
+    },
     openGraph: {
       type: "website",
       url: `https://${params.domain}/terms`,
