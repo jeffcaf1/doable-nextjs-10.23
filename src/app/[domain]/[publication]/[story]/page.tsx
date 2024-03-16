@@ -40,14 +40,14 @@ export async function generateMetadata({ params }: { params: { story: string; pu
           alt: story?.heroImageAltText || "",
         },
       ],
-      siteName: "Doable | News + Thought Leadership",
+      siteName: "OutLever | News + Thought Leadership",
       publishedTime: story?.["Created Date"] || "",
       modifiedTime: story?.["Modified Date"] || "",
       locale: "en_US",
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }
@@ -96,13 +96,13 @@ export default async function Story({ params }: { params: { story: string; publi
     publisher: [
       {
         "@type": "Organization",
-        "name": "Doable | News + Thought Leadership",
-        "url": "https://alldoable.com",
+        "name": "OutLever | News + Thought Leadership",
+        "url": "https://outlever.com",
       },
     ],
     "logo": {
       "@type": "ImageObject",
-      "url": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+      "url": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
       "width": 660,
       "height": 1220
     }

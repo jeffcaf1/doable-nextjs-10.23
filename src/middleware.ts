@@ -28,7 +28,7 @@ export default async function middleware(req: NextRequest) {
   const hostname = req.headers
     .get("host")!
     .replace(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN_DEV}`, `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`)!
-    .replace(`www.alldoable.com`, `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`)!;
+    .replace(`www.outlever.com`, `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`)!;
 
   const searchParams = req.nextUrl.searchParams.toString();
 

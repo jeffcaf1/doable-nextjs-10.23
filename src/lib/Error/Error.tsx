@@ -2,20 +2,20 @@ import "./styles.css";
 
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
-   title: "Doable | News + Thought Leadership",
-   description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+   title: "OutLever | News + Thought Leadership",
+   description: "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
    openGraph: {
       type: "website",
       url: `https://${params.domain}`,
-      siteName: "Doable News | Insights Amplified",
-      title: "Doable News | Insights Amplified",
-      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
+      siteName: "OutLever News | Insights Amplified",
+      title: "OutLever News | Insights Amplified",
+      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
       locale: "en_US",
-      description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+      description: "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }

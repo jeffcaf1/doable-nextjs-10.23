@@ -4,23 +4,23 @@ import { fetchPublications, fetchPublicationsByDomain, parsePublication } from "
 // Update this function to change the metadata of the page
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
-    title: "Doable | All Publications",
-    description: "Explore Doable's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+    title: "OutLever | All Publications",
+    description: "Explore OutLever's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     alternates: {
       canonical: `https://${params.domain}/publications`,
     },
     openGraph: {
       type: "website",
       url: `https://${params.domain}/publications`,
-      siteName: "Doable | News + Thought Leadership",
+      siteName: "OutLever | News + Thought Leadership",
       locale: "en_US",
-      title: "Doable | All Publications",
-      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
-      description: "Explore Doable's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+      title: "OutLever | All Publications",
+      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
+      description: "Explore OutLever's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }
@@ -48,39 +48,39 @@ export default async function Publications({ params }: { params: { domain: strin
     "@graph": [
       {
         "@type": "CollectionPage",
-        "url": "https://www.alldoable.com/publications",
-        "name": `Doable | All Publications`,
-        "about": { "@id": "https://www.alldoable.com/about" },
-        "description": "Explore Doable's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+        "url": "https://www.outlever.com/publications",
+        "name": `OutLever | All Publications`,
+        "about": { "@id": "https://www.outlever.com/about" },
+        "description": "Explore OutLever's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
         "inLanguage": "en-US"
       },
       {
         "@type": "WebSite",
-        "@id": "https://alldoable.com/#website",
-        "url": "https://alldoable.com/",
-        "name": "Doable | News + Thought Leadership",
-        "description": "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
-        "publisher": { "@id": "https://alldoable.com/" },
-        "alternateName": ["Doable", "doable"]
+        "@id": "https://outlever.com/#website",
+        "url": "https://outlever.com/",
+        "name": "OutLever | News + Thought Leadership",
+        "description": "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+        "publisher": { "@id": "https://outlever.com/" },
+        "alternateName": ["OutLever", "OutLever"]
       },
       {
         "@type": "Organization",
-        "@id": "https://alldoable.com/",
-        "name": "Doable | News + Thought Leadership",
-        "alternateName": ["Doable", "doable"],
-        "url": "https://alldoable.com/",
+        "@id": "https://outlever.com/",
+        "name": "OutLever | News + Thought Leadership",
+        "alternateName": ["OutLever", "OutLever"],
+        "url": "https://outlever.com/",
         "logo": {
           "@type": "ImageObject",
           "inLanguage": "en-US",
-          "@id": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
-          "url": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
-          "contentUrl": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+          "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+          "url": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+          "contentUrl": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
           "width": 660,
           "height": 1220,
-          "caption": "Doable News Logo"
+          "caption": "OutLever News Logo"
         },
-        "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png" },
-        "sameAs": ["https://www.linkedin.com/company/xdoable/"]
+        "image": { "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png" },
+        "sameAs": ["https://www.linkedin.com/company/xOutLever/"]
       }
     ]
   };

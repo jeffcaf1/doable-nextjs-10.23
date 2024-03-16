@@ -17,7 +17,7 @@ type AuthorLayoutProps = {
 
 const Layout = ({
   title = "Modern Companies, Modern Systems",
-  description = "Doable hosts over 50 publications dedicated to the top B2B thought leaders. We get the hottest daily takes from enterprise and mid-market masterminds who are driving technology businesses forward.",
+  description = "OutLever hosts over 50 publications dedicated to the top B2B thought leaders. We get the hottest daily takes from enterprise and mid-market masterminds who are driving technology businesses forward.",
   sections = [],
   titleAndCompany,
   linkedInUrl,

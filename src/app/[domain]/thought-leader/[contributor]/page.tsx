@@ -23,13 +23,13 @@ export async function generateMetadata({ params }: { params: { contributor: stri
   const author = await fetchAuthor(params.contributor);
 
   return {
-    title: author?.fullName || "Doable",
+    title: author?.fullName || "OutLever",
     description: author?.about || "",
     alternates: {
       canonical: `https://${params.domain}/thought-leader/${params.contributor}`,
     },
     openGraph: {
-      title: author?.fullName || "Doable",
+      title: author?.fullName || "OutLever",
       type: "profile",
       url: `https://${params.domain}/thought-leader/${params.contributor}`,
       images: [
@@ -40,14 +40,14 @@ export async function generateMetadata({ params }: { params: { contributor: stri
       ],
       description: author?.about || "",
       username: author?.Slug || "",
-      siteName: "Doable | News + Thought Leadership",
+      siteName: "OutLever | News + Thought Leadership",
       firstName: author?.fullName?.split(" ")[0] || "",
       lastName: author?.fullName?.split(" ")[1] || "",
       locale: "en_US",
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }
@@ -119,7 +119,7 @@ export default async function Contributor({ params }: { params: { contributor: s
     dateModified: author?.["Modified Date"] || "",
     mainEntity: {
       "@type": author?.authorIsPersonOrOrganization === "person" ? "Person" : "Organization",
-      name: author?.fullName || "Doable",
+      name: author?.fullName || "OutLever",
       alternateName: author?.Slug,
     },
   };

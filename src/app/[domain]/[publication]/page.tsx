@@ -55,12 +55,12 @@ export async function generateMetadata({ params }: { params: { publication: stri
           // alt: currentPublication?.heroImageAltText || "",
         },
       ],
-      siteName: "Doable | News + Thought Leadership",
+      siteName: "OutLever | News + Thought Leadership",
       locale: "en_US",
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }
@@ -118,41 +118,41 @@ export default async function Publication({ params }: { params: { publication: s
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": `https://www.alldoable.com/${currentPublication?.Slug}`,
-        "url": `https://www.alldoable.com/${currentPublication?.Slug}`,
-        "name": `Doable | ${currentPublication?.primaryTitle} News`,
-        "about": { "@id": "https://www.alldoable.com/about" },
+        "@id": `https://www.outlever.com/${currentPublication?.Slug}`,
+        "url": `https://www.outlever.com/${currentPublication?.Slug}`,
+        "name": `OutLever | ${currentPublication?.primaryTitle} News`,
+        "about": { "@id": "https://www.outlever.com/about" },
         "description": `${currentPublication?.about}`,
-        "breadcrumb": { "@id": "https://alldoable.com/" },
+        "breadcrumb": { "@id": "https://outlever.com/" },
         "inLanguage": "en-US"
       },
       {
         "@type": "WebSite",
-        "@id": "https://alldoable.com/#website",
-        "url": "https://alldoable.com/",
-        "name": "Doable | News + Thought Leadership",
-        "description": "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
-        "publisher": { "@id": "https://alldoable.com/" },
-        "alternateName": ["Doable", "doable"]
+        "@id": "https://outlever.com/#website",
+        "url": "https://outlever.com/",
+        "name": "OutLever | News + Thought Leadership",
+        "description": "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+        "publisher": { "@id": "https://outlever.com/" },
+        "alternateName": ["OutLever", "OutLever"]
       },
       {
         "@type": "Organization",
-        "@id": "https://alldoable.com/",
-        "name": "Doable | News + Thought Leadership",
+        "@id": "https://outlever.com/",
+        "name": "OutLever | News + Thought Leadership",
         "alternateName": "TC",
-        "url": "https://alldoable.com/",
+        "url": "https://outlever.com/",
         "logo": {
           "@type": "ImageObject",
           "inLanguage": "en-US",
-          "@id": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
-          "url": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
-          "contentUrl": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png",
+          "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+          "url": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+          "contentUrl": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
           "width": 660,
           "height": 1220,
-          "caption": "Doable News Logo"
+          "caption": "OutLever News Logo"
         },
-        "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/doable-og-image.png" },
-        "sameAs": ["https://www.linkedin.com/company/xdoable/"]
+        "image": { "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png" },
+        "sameAs": ["https://www.linkedin.com/company/xOutLever/"]
       }
     ]
   };

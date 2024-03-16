@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 # Sitemap
-sitemap: https://alldoable.com/sitemap.xml
+sitemap: https://outlever.com/sitemap.xml

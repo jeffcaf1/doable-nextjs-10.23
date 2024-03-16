@@ -49,7 +49,7 @@ const Footer = () => {
 
               <ul className="footer-nav-social">
                 <li>
-                  <a href="https://www.linkedin.com/company/xdoable/" className="hover">
+                  <a href="https://www.linkedin.com/company/xOutLever/" className="hover">
                     <img src="/images/linkedin.png" alt="LinkedIn" className="footer-social-icon" />
                   </a>
                 </li>
@@ -68,7 +68,7 @@ const Footer = () => {
         <div className="footer-inner-bottom">
           <span className="footer-legal">© 2024 Inspo Digital, Inc. All rights reserved.</span>
           <a href="/">
-            <img src="/images/logo.svg" alt="Doable Logo" className="footer-logo" />
+            <img src="/images/logo.svg" alt="OutLever Logo" className="footer-logo" />
           </a>
         </div>
       </div>

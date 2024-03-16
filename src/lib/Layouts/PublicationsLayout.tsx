@@ -13,7 +13,7 @@ type PublicationsLayoutProps = {
 
 const Layout = ({
   title = "Our Publications",
-  description = "Explore Doable's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
+  description = "Explore OutLever's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
   sections = [],
 }: PublicationsLayoutProps) => {
   return (

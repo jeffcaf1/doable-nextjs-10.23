@@ -5,8 +5,8 @@ import Header from "@/lib/Header/Header";
 import Footer from "@/lib/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Doable News | Insights Amplified",
-  description: "Doable is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
+  title: "OutLever News | Insights Amplified",
+  description: "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -10,15 +10,15 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     openGraph: {
       type: "website",
       url: `https://${params.domain}/get-featured`,
-      siteName: "Doable | News + Thought Leadership",
-      title: "Get Featured in Doable News",
-      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
+      siteName: "OutLever | News + Thought Leadership",
+      title: "Get Featured in OutLever News",
+      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
       locale: "en_US",
       description: "We want to speak with B2B thought leaders across all industries. We want your perspectives and insights on breaking news and fundamental topics that are unique to your trade."
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }
@@ -39,7 +39,7 @@ export default function GetFeatured() {
           <div className="inner">
           <div className="page-inner">
               <p>Want to share your perspective on a timely news story? Or maybe your company has some big news you'd like to amplify?
-                Doable is always on the hunt for unique perspectives from thought leaders who are experts in their fields. We want to hear from you!</p>
+                OutLever is always on the hunt for unique perspectives from thought leaders who are experts in their fields. We want to hear from you!</p>
                 <br />
                 <p>
 Email us today at <a className="body-links" href="mailto:hello@doablehq.com">hello@doablehq.com</a>

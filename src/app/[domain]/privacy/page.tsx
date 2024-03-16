@@ -3,22 +3,22 @@ import "./styles.css";
 export async function generateMetadata({ params }: { params: { domain: string } }) {
   return {
     title: "Privacy Policy",
-    description: "At Doable, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
+    description: "At OutLever, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
     alternates: {
       canonical: `https://${params.domain}/privacy`,
     },
     openGraph: {
       type: "website",
       url: `https://${params.domain}/privacy`,
-      siteName: "Doable | News + Thought Leadership",
+      siteName: "OutLever | News + Thought Leadership",
       title: "Privacy Policy",
-      images: ["https://default-doable.b-cdn.net/live-site-images/doable-og-image.png"],
+      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
       locale: "en_US",
-      description: "At Doable, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
+      description: "At OutLever, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@doablehq',
+      site: '@OutLeverhq',
     }
   };
 }
@@ -38,9 +38,9 @@ export default function Privacy() {
       <section className="page-body-outer">
         <div className="inner">
           <div className="page-inner">
-            <p>This Privacy Policy ("Privacy Policy") is applicable to Inspo Digital, Inc (dba Doable), a Delaware corporation, and governs the collection, use, and disclosure of information through the Doable service (the "Doable Service"). By accessing the Doable Service, you agree to the terms outlined in this Privacy Policy.</p>
+            <p>This Privacy Policy ("Privacy Policy") is applicable to Inspo Digital, Inc (dba OutLever), a Delaware corporation, and governs the collection, use, and disclosure of information through the OutLever service (the "OutLever Service"). By accessing the OutLever Service, you agree to the terms outlined in this Privacy Policy.</p>
 
-            <p>If you have any questions or concerns regarding this Privacy Policy, you can reach out to us at <a className="body-links" href="mailto:hello@doablehq.com">hello@doablehq.com</a>.</p>
+            <p>If you have any questions or concerns regarding this Privacy Policy, you can reach out to us at <a className="body-links" href="mailto:hello@OutLeverhq.com">hello@OutLeverhq.com</a>.</p>
 
             <h2>Definitions</h2>
 
@@ -59,7 +59,7 @@ export default function Privacy() {
 
             <p>We use the collected Information for legitimate business purposes, including:</p>
             <ol>
-              <li>Providing and improving the Doable Service.</li>
+              <li>Providing and improving the OutLever Service.</li>
             </ol>
 
             <h2>When and With Whom We May Disclose Information</h2>
@@ -83,7 +83,7 @@ export default function Privacy() {
             <ol>
               <li>
                 <strong>Third Party Platforms:</strong>
-                <p>Users accessing Doable Content via Third Party Platforms should review the platform's privacy policy for opt-out options regarding information sharing with Doable.</p>
+                <p>Users accessing OutLever Content via Third Party Platforms should review the platform's privacy policy for opt-out options regarding information sharing with OutLever.</p>
               </li>
             </ol>
 
@@ -97,15 +97,15 @@ export default function Privacy() {
 
             <h2>Using Our Services Outside of the United States</h2>
 
-            <p>This Privacy Policy covers information collected from residents of the United States. If using the Doable Service from outside the United States, users understand and consent to the transfer, storage, and processing of their information in the United States.</p>
+            <p>This Privacy Policy covers information collected from residents of the United States. If using the OutLever Service from outside the United States, users understand and consent to the transfer, storage, and processing of their information in the United States.</p>
 
             <h2>Changes to This Privacy Policy</h2>
 
-            <p>We may modify this Privacy Policy, and any material changes will be communicated by posting the revised policy on the Doable website. Users are encouraged to periodically review the policy, and continued use of the Doable Service after the effective date implies acceptance of the updated Privacy Policy.</p>
+            <p>We may modify this Privacy Policy, and any material changes will be communicated by posting the revised policy on the OutLever website. Users are encouraged to periodically review the policy, and continued use of the OutLever Service after the effective date implies acceptance of the updated Privacy Policy.</p>
 
             <h2>How to Contact Us</h2>
 
-            <p>For questions about this Privacy Policy, contact us at: <a className="body-links" href="mailto:hello@doablehq.com">hello@doablehq.com</a></p>
+            <p>For questions about this Privacy Policy, contact us at: <a className="body-links" href="mailto:hello@OutLeverhq.com">hello@OutLeverhq.com</a></p>
 
             <p>Effective: February 1, 2024</p>          </div>
         </div>
