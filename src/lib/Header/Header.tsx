@@ -10,7 +10,7 @@ const Header = () => {
     <header className="outer header-outer">
       <div className="inner header-inner">
         <a href="/" className="header-logo">
-          <img src="/images/logo.svg" alt="OutLever Logo" />
+          <img src="/images/header-logo.svg" alt="OutLever Logo" />
         </a>
         <nav className="header-nav-outer">
           <div className="header-nav-inner">
