@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="eUQaqcwiTMH1"
+   viewBox="0 0 1200 178"
+   shape-rendering="geometricPrecision"
+   text-rendering="geometricPrecision"
+   version="1.1"
+   sodipodi:docname="doable-large-web3.svg"
+   width="1200"
+   height="178"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.52507738"
+     inkscape:cx="538.01594"
+     inkscape:cy="396.13209"
+     inkscape:window-width="1792"
+     inkscape:window-height="1067"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="eUQaqcwiTMH1"
+     inkscape:export-bgcolor="#ffffff00"
+     showguides="true" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient4"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4"
+       id="linearGradient5"
+       x1="595.47015"
+       y1="314.50482"
+       x2="597.74915"
+       y2="7.52531"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(6,4)" />
+  </defs>
+  <text
+     xml:space="preserve"
+     style="font-size:218.667px;line-height:0;font-family:'.PingFang HK';-inkscape-font-specification:'.PingFang HK';letter-spacing:6.56px;fill:url(#linearGradient5);stroke-width:3;stroke-miterlimit:3;stroke-opacity:0"
+     x="-0.81638813"
+     y="160.69464"
+     id="text1-6"><tspan
+       sodipodi:role="line"
+       id="tspan1-5"
+       x="-0.81638813"
+       y="160.69464"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:218.667px;line-height:0;font-family:Jost;-inkscape-font-specification:'Jost Semi-Bold';letter-spacing:6.56px;fill:url(#linearGradient5);fill-opacity:1">OUTLEVER</tspan></text>
+</svg>

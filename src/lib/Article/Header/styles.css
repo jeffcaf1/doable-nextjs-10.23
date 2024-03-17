@@ -14,13 +14,13 @@
   width: 100%;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.625rem;
-  padding-top: 5rem;
+  padding-top: 4.2rem;
   padding-left: 0.625rem;
 }
 
 .homepage-title
 {
-  font-size: 5rem;
+  font-size: 3rem;
   max-width: 80%;
   line-height: 1;
   font-weight: 700;
@@ -83,13 +83,13 @@
 
   .article-header-inner-wrapper {
     width: 100%;
-    padding-top: 2.5rem;
+    padding-top: 3rem;
     gap: .7rem;
     padding-left: 0.625rem;
   }
 
   .homepage-title {
-    font-size: 3rem;
+    font-size: 1.5rem;
   }
 
   .article-header-title {

@@ -6,13 +6,17 @@
   gap: 5rem;
   max-width: var(--max-page-width);
   width: 100%;
-  margin: 0 auto;
-  padding: 3.125rem 1.25rem;
+  margin: 3rem auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-left: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
   .publication-lists-container
   {
+    margin-top: 1rem;
+    margin-left: .5rem;
     gap: 2.5rem;
   }
 

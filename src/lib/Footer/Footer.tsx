@@ -68,7 +68,7 @@ const Footer = () => {
         <div className="footer-inner-bottom">
           <span className="footer-legal">© 2024 Inspo Digital, Inc. All rights reserved.</span>
           <a href="/">
-            <img src="/images/logo.svg" alt="OutLever Logo" className="footer-logo" />
+            <img src="/images/footer-logo.svg" alt="OutLever Logo" className="footer-logo" />
           </a>
         </div>
       </div>

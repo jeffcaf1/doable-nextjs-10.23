@@ -1,7 +1,7 @@
 .header-logo {
-  max-width: 32.5rem;
+  max-width: 40rem;
   width: 100%;
-  opacity: 1;
+  opacity: .7;
 }
 
 .header-inner {
