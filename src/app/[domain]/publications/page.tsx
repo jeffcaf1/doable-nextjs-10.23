@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       siteName: "OutLever | News + Thought Leadership",
       locale: "en_US",
       title: "OutLever | All Publications",
-      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png"],
       description: "Explore OutLever's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     },
     twitter: {
@@ -72,14 +72,14 @@ export default async function Publications({ params }: { params: { domain: strin
         "logo": {
           "@type": "ImageObject",
           "inLanguage": "en-US",
-          "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
-          "url": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
-          "contentUrl": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+          "@id": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
+          "url": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
+          "contentUrl": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
           "width": 660,
           "height": 1220,
           "caption": "OutLever News Logo"
         },
-        "image": { "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png" },
+        "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png" },
         "sameAs": ["https://www.linkedin.com/company/xOutLever/"]
       }
     ]

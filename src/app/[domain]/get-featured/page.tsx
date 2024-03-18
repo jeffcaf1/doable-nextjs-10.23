@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       url: `https://${params.domain}/get-featured`,
       siteName: "OutLever | News + Thought Leadership",
       title: "Get Featured in OutLever News",
-      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png"],
       locale: "en_US",
       description: "We want to speak with B2B thought leaders across all industries. We want your perspectives and insights on breaking news and fundamental topics that are unique to your trade."
     },

@@ -144,14 +144,14 @@ export default async function Publication({ params }: { params: { publication: s
         "logo": {
           "@type": "ImageObject",
           "inLanguage": "en-US",
-          "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
-          "url": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
-          "contentUrl": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+          "@id": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
+          "url": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
+          "contentUrl": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
           "width": 660,
           "height": 1220,
           "caption": "OutLever News Logo"
         },
-        "image": { "@id": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png" },
+        "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png" },
         "sameAs": ["https://www.linkedin.com/company/xOutLever/"]
       }
     ]

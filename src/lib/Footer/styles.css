@@ -84,7 +84,7 @@
 
 .footer-logo {
   width: 25rem;
-  opacity: 1;
+  opacity: .75;
 }
 
 @media (max-width: 768px) {

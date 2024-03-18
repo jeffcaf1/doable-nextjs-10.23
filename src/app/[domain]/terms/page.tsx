@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       url: `https://${params.domain}/terms`,
       siteName: "OutLever | News + Thought Leadership",
       title: "Terms and Conditions",
-      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png"],
       locale: "en_US",
       description: "These Terms of Service govern each website, mobile site, application, and/or other service, regardless of how distributed, transmitted, published, or broadcast provided by OutLever, its parent, subsidiaries and/or affiliates.",
     },

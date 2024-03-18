@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       url: `https://${params.domain}/privacy`,
       siteName: "OutLever | News + Thought Leadership",
       title: "Privacy Policy",
-      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png"],
       locale: "en_US",
       description: "At OutLever, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
     },

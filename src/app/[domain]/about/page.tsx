@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       url: `https://${params.domain}/about`,
       siteName: "OutLever | News + Thought Leadership",
       title: "About OutLever",
-      images: ["https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png"],
+      images: ["https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png"],
       locale: "en_US",
       description: "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
     },

@@ -102,7 +102,7 @@ export default async function Story({ params }: { params: { story: string; publi
     ],
     "logo": {
       "@type": "ImageObject",
-      "url": "https://default-OutLever.b-cdn.net/live-site-images/OutLever-og-image.png",
+      "url": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png",
       "width": 660,
       "height": 1220
     }
