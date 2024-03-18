@@ -35,12 +35,14 @@
 
 @media (max-width: 768px) {
   .intro-container {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
 
   }
 
   .intro-container p {
     font-size: 1.0625rem;
+      padding-left: 20px;
+      padding-right: 20px;
   }
 }

@@ -71,7 +71,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-left: 1px solid var(--border);
-  padding-left: 0.625rem;
+  padding-left: 0rem;
   height: 100%;
 }
 
@@ -85,7 +85,7 @@ body {
 
 @media (max-width: 768px) {
   .outer {
-    padding: 0 0.3125rem;
+    padding: 0 0.5rem;
   }
 
   .btn-primary {

@@ -1,5 +1,4 @@
 .publication-lists-container,
-.section-lists-container,
 .stories-lists-container {
   display: flex;
   flex-direction: column;
@@ -13,20 +12,11 @@
 }
 
 @media (max-width: 768px) {
-  .publication-lists-container
-  {
-    margin-top: 1rem;
+  .stories-lists-container,
+  .publication-lists-container {
+    margin-top: 2.5rem;
     margin-left: .5rem;
+    padding-left: 1rem;
     gap: 2.5rem;
-  }
-
-  .section-lists-container
-  {
-    gap: 2.5rem;
-  }
-  .stories-lists-container {
-    padding-top: 2.5rem;
-    padding-left: 1.875rem;
-    gap: 2rem;
   }
 }
