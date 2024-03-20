@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     title: "Terms and Conditions",
     description: "These Terms of Service govern each website, mobile site, application, and/or other service, regardless of how distributed, transmitted, published, or broadcast provided by OutLever, its parent, subsidiaries and/or affiliates.",
     alternates: {
-      canonical: `https://${params.domain}/terms`,
+      canonical: `https://www.${params.domain}/terms`,
     },
     openGraph: {
       type: "website",

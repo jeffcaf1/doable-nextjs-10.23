@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     title: "OutLever | About",
     description: "OutLever is a news platform for B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     alternates: {
-      canonical: `https://${params.domain}/about`,
+      canonical: `https://www.${params.domain}/about`,
     },
     openGraph: {
       type: "website",

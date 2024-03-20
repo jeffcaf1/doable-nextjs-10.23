@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: { story: string; pu
     title: story?.titlePrimary || "",
     description: story?.description || "",
     alternates: {
-      canonical: `https://${params.domain}/${params.publication}/${params.story}`,
+      canonical: `https://www.${params.domain}/${params.publication}/${params.story}`,
     },
     openGraph: {
       title: story?.titlePrimary || "",

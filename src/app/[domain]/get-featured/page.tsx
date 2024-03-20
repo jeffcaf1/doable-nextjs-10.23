@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     title: "Get Featured",
     description: "We want to speak with B2B thought leaders across all industries. We want your perspectives and insights on breaking news and fundamental topics that are unique to your trade.",
     alternates: {
-      canonical: `https://${params.domain}/get-featured`,
+      canonical: `https://www.${params.domain}/get-featured`,
     },
     openGraph: {
       type: "website",

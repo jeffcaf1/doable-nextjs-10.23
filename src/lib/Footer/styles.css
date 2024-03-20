@@ -20,6 +20,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  padding-left: 1rem;
+  padding-bottom: 4px;
 }
 
 .footer-inner-left,

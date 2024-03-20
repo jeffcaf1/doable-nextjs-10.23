@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: { contributor: stri
     title: author?.fullName || "OutLever",
     description: author?.about || "",
     alternates: {
-      canonical: `https://${params.domain}/thought-leader/${params.contributor}`,
+      canonical: `https://www.${params.domain}/thought-leader/${params.contributor}`,
     },
     openGraph: {
       title: author?.fullName || "OutLever",

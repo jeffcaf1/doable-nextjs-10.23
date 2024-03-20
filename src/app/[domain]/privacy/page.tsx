@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     title: "Privacy Policy",
     description: "At OutLever, we very much appreciate your readership and understand the importance of your personal privacy. This policy is available to help you understand the handling of information while you're on our sites.",
     alternates: {
-      canonical: `https://${params.domain}/privacy`,
+      canonical: `https://www.${params.domain}/privacy`,
     },
     openGraph: {
       type: "website",

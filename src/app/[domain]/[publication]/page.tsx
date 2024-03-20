@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: { publication: stri
     title: currentPublication?.primaryTitle || "",
     description: currentPublication?.about || "",
     alternates: {
-      canonical: `https://${params.domain}/${params.publication}`,
+      canonical: `https://www.${params.domain}/${params.publication}`,
     },
     openGraph: {
       title: currentPublication?.primaryTitle || "",
