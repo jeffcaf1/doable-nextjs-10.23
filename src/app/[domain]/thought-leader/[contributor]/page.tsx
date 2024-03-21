@@ -45,10 +45,6 @@ export async function generateMetadata({ params }: { params: { contributor: stri
       lastName: author?.fullName?.split(" ")[1] || "",
       locale: "en_US",
     },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@OutLever',
-    }
   };
 }
 

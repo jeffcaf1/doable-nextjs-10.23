@@ -58,10 +58,6 @@ export async function generateMetadata({ params }: { params: { publication: stri
       siteName: "OutLever | News + Thought Leadership",
       locale: "en_US",
     },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@OutLever',
-    }
   };
 }
 

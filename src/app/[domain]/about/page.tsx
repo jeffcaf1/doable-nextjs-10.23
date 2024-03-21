@@ -16,10 +16,6 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       locale: "en_US",
       description: "OutLever is a news platform for thought leadership, trends, and industry insights. We offer stories from top minds in technology, wellness, finance, and beyond.",
     },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@OutLever',
-    }
   };
 }
 

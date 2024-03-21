@@ -18,10 +18,6 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       images: ["https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png"],
       description: "Explore OutLever's news publications covering B2B thought leadership, trends, and insights across every industry. We offer stories from the top minds in technology, wellness, finance, and beyond.",
     },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@OutLever',
-    }
   };
 }
 

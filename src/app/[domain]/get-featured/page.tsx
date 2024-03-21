@@ -16,10 +16,6 @@ export async function generateMetadata({ params }: { params: { domain: string } 
       locale: "en_US",
       description: "We want to speak with B2B thought leaders across all industries. We want your perspectives and insights on breaking news and fundamental topics that are unique to your trade."
     },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@OutLever',
-    }
   };
 }
 
