@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { domain: string } 
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@OutLeverhq',
+      site: '@OutLever',
     }
   };
 }
@@ -80,7 +80,7 @@ export default async function Publications({ params }: { params: { domain: strin
           "caption": "OutLever News Logo"
         },
         "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png" },
-        "sameAs": ["https://www.linkedin.com/company/xOutLever/"]
+        "sameAs": ["https://www.linkedin.com/company/outlever/"]
       }
     ]
   };

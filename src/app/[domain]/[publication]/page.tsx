@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: { params: { publication: stri
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@OutLeverhq',
+      site: '@OutLever',
     }
   };
 }
@@ -152,7 +152,7 @@ export default async function Publication({ params }: { params: { publication: s
           "caption": "OutLever News Logo"
         },
         "image": { "@id": "https://default-doable.b-cdn.net/live-site-images/outlever-og-image1%20.png" },
-        "sameAs": ["https://www.linkedin.com/company/xOutLever/"]
+        "sameAs": ["https://www.linkedin.com/company/outlever/"]
       }
     ]
   };

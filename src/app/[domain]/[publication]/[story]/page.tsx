@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: { story: string; pu
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@OutLeverhq',
+      site: '@OutLever',
     }
   };
 }

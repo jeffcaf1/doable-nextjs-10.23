@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: { contributor: stri
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@OutLeverhq',
+      site: '@OutLever',
     }
   };
 }
