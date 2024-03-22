@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: { params: { publication: stri
   const currentPublication = publications[0];
 
   return {
-    title: currentPublication?.primaryTitle || "",
+    title: currentPublication?.primaryTitle + " | News from OutLever" || "",
     description: currentPublication?.about || "",
     alternates: {
       canonical: `https://www.${params.domain}/${params.publication}`,
     },
     openGraph: {
-      title: currentPublication?.primaryTitle || "",
+      title: currentPublication?.primaryTitle + " | News from OutLever" || "",
       description: currentPublication?.about || "",
       type: "website",
       url: `https://${params.domain}/${params.publication}`,
