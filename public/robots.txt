@@ -2,5 +2,6 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
-# Sitemap
-sitemap: https://outlever.com/sitemap.xml
+# Sitemaps
+sitemap: https://www.outlever.com/sitemap.xml
+Sitemap: https://www.outlever.com/sitemap-news.xml

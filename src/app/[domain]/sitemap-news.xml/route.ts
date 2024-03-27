@@ -3,7 +3,7 @@ import { fetchPublications, fetchStories, fetchStory, getAuthorPaths, getPublica
 import { NextApiRequest } from "next";
 
 async function generateSiteMap(host: string) {
-  const root = `https://` + host;
+  const root = `https://www.` + host;
 
   const stories = await fetchStories({
     start: 0,
